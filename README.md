@@ -71,7 +71,7 @@ Shofy is a powerful and modern full stack eCommerce web application built using 
 
 ## Server Side Live Link
 
-[Shofy Server Side Live Link](https://shofy-backend.vercel.app)
+[Shofy Server Side Live Link](https://project-warehouse-backend.vercel.app)
 
 ## Sources and Credits
 

@@ -5,7 +5,7 @@ export const authApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     // get offer coupon
     getOfferCoupons: builder.query({
-      query: () => `https://shofy-backend.vercel.app/api/coupon`,
+      query: () => `https://project-warehouse-backend.vercel.app/api/coupon`,
       providesTags:['Coupon'],
       keepUnusedDataFor: 600,
     }),
