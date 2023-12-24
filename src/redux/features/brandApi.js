@@ -1,14 +1,15 @@
+import { BACKEND_BASE_URL } from "@/consts/site-data";
 import { apiSlice } from "../api/apiSlice";
 
+const url = BACKEND_BASE_URL;
+
 export const brandApi = apiSlice.injectEndpoints({
-  overrideExisting:true,
+  overrideExisting: true,
   endpoints: (builder) => ({
     getActiveBrands: builder.query({
-      query: () => `https://project-warehouse-backend.vercel.app/api/brand/active`
+      query: () => `${url}/api/brand/active`,
     }),
   }),
 });
 
-export const {
- useGetActiveBrandsQuery
-} = brandApi;
+export const { useGetActiveBrandsQuery } = brandApi;

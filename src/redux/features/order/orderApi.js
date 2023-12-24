@@ -1,5 +1,8 @@
+import { BACKEND_BASE_URL } from "@/consts/site-data";
 import { apiSlice } from "../../api/apiSlice";
 import { set_client_secret } from "./orderSlice";
+
+const url = BACKEND_BASE_URL;
 
 export const authApi = apiSlice.injectEndpoints({
   overrideExisting: true,
@@ -7,7 +10,7 @@ export const authApi = apiSlice.injectEndpoints({
     // createPaymentIntent
     createPaymentIntent: builder.mutation({
       query: (data) => ({
-        url: "https://project-warehouse-backend.vercel.app/api/order/create-payment-intent",
+        url: `${url}/api/order/create-payment-intent`,
         method: "POST",
         body: data,
       }),
@@ -20,16 +23,15 @@ export const authApi = apiSlice.injectEndpoints({
           // do nothing
         }
       },
-
     }),
     // saveOrder
     saveOrder: builder.mutation({
       query: (data) => ({
-        url: "https://project-warehouse-backend.vercel.app/api/order/saveOrder",
+        url: `${url}/api/order/saveOrder`,
         method: "POST",
         body: data,
       }),
-      invalidatesTags:['UserOrders'],
+      invalidatesTags: ["UserOrders"],
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
           const result = await queryFulfilled;
@@ -42,17 +44,16 @@ export const authApi = apiSlice.injectEndpoints({
           // do nothing
         }
       },
-
     }),
     // getUserOrders
     getUserOrders: builder.query({
-      query: () => `https://project-warehouse-backend.vercel.app/api/user-order`,
-      providesTags:["UserOrders"],
+      query: () => `${url}/api/user-order`,
+      providesTags: ["UserOrders"],
       keepUnusedDataFor: 600,
     }),
     // getUserOrders
     getUserOrderById: builder.query({
-      query: (id) => `https://project-warehouse-backend.vercel.app/api/user-order/${id}`,
+      query: (id) => `${url}/api/user-order/${id}`,
       providesTags: (result, error, arg) => [{ type: "UserOrder", id: arg }],
       keepUnusedDataFor: 600,
     }),

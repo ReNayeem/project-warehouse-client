@@ -1,13 +1,16 @@
 import { apiSlice } from "@/redux/api/apiSlice";
 import { userLoggedIn } from "./authSlice";
 import Cookies from "js-cookie";
+import { BACKEND_BASE_URL } from "@/consts/site-data";
+
+const url = BACKEND_BASE_URL;
 
 export const authApi = apiSlice.injectEndpoints({
   overrideExisting: true,
   endpoints: (builder) => ({
     registerUser: builder.mutation({
       query: (data) => ({
-        url: "https://project-warehouse-backend.vercel.app/api/user/signup",
+        url: `${url}/api/user/signup`,
         method: "POST",
         body: data,
       }),
@@ -15,7 +18,7 @@ export const authApi = apiSlice.injectEndpoints({
     // signUpProvider
     signUpProvider: builder.mutation({
       query: (token) => ({
-        url: `https://project-warehouse-backend.vercel.app/api/user/register/${token}`,
+        url: `${url}/api/user/register/${token}`,
         method: "POST",
       }),
 
@@ -29,14 +32,14 @@ export const authApi = apiSlice.injectEndpoints({
               accessToken: result.data.data.token,
               user: result.data.data.user,
             }),
-            { expires: 0.5 }
+            { expires: 0.5 },
           );
 
           dispatch(
             userLoggedIn({
               accessToken: result.data.data.token,
               user: result.data.data.user,
-            })
+            }),
           );
         } catch (err) {
           // do nothing
@@ -46,7 +49,7 @@ export const authApi = apiSlice.injectEndpoints({
     // login
     loginUser: builder.mutation({
       query: (data) => ({
-        url: "https://project-warehouse-backend.vercel.app/api/user/login",
+        url: `${url}/api/user/login`,
         method: "POST",
         body: data,
       }),
@@ -61,14 +64,14 @@ export const authApi = apiSlice.injectEndpoints({
               accessToken: result.data.data.token,
               user: result.data.data.user,
             }),
-            { expires: 0.5 }
+            { expires: 0.5 },
           );
 
           dispatch(
             userLoggedIn({
               accessToken: result.data.data.token,
               user: result.data.data.user,
-            })
+            }),
           );
         } catch (err) {
           // do nothing
@@ -77,7 +80,7 @@ export const authApi = apiSlice.injectEndpoints({
     }),
     // get me
     getUser: builder.query({
-      query: () => "https://project-warehouse-backend.vercel.app/api/user/me",
+      query: () => `${url}/api/user/me`,
 
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
@@ -85,7 +88,7 @@ export const authApi = apiSlice.injectEndpoints({
           dispatch(
             userLoggedIn({
               user: result.data,
-            })
+            }),
           );
         } catch (err) {
           // do nothing
@@ -94,7 +97,7 @@ export const authApi = apiSlice.injectEndpoints({
     }),
     // confirmEmail
     confirmEmail: builder.query({
-      query: (token) => `https://project-warehouse-backend.vercel.app/api/user/confirmEmail/${token}`,
+      query: (token) => `${url}/api/user/confirmEmail/${token}`,
 
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
@@ -106,14 +109,14 @@ export const authApi = apiSlice.injectEndpoints({
               accessToken: result.data.data.token,
               user: result.data.data.user,
             }),
-            { expires: 0.5 }
+            { expires: 0.5 },
           );
 
           dispatch(
             userLoggedIn({
               accessToken: result.data.data.token,
               user: result.data.data.user,
-            })
+            }),
           );
         } catch (err) {
           // do nothing
@@ -123,7 +126,7 @@ export const authApi = apiSlice.injectEndpoints({
     // reset password
     resetPassword: builder.mutation({
       query: (data) => ({
-        url: "https://project-warehouse-backend.vercel.app/api/user/forget-password",
+        url: `${url}/api/user/forget-password`,
         method: "PATCH",
         body: data,
       }),
@@ -131,7 +134,7 @@ export const authApi = apiSlice.injectEndpoints({
     // confirmForgotPassword
     confirmForgotPassword: builder.mutation({
       query: (data) => ({
-        url: "https://project-warehouse-backend.vercel.app/api/user/confirm-forget-password",
+        url: `${url}/api/user/confirm-forget-password`,
         method: "PATCH",
         body: data,
       }),
@@ -139,7 +142,7 @@ export const authApi = apiSlice.injectEndpoints({
     // change password
     changePassword: builder.mutation({
       query: (data) => ({
-        url: "https://project-warehouse-backend.vercel.app/api/user/change-password",
+        url: `${url}/api/user/change-password`,
         method: "PATCH",
         body: data,
       }),
@@ -147,7 +150,7 @@ export const authApi = apiSlice.injectEndpoints({
     // updateProfile password
     updateProfile: builder.mutation({
       query: ({ id, ...data }) => ({
-        url: `https://project-warehouse-backend.vercel.app/api/user/update-user/${id}`,
+        url: `${url}/api/user/update-user/${id}`,
         method: "PUT",
         body: data,
       }),
@@ -162,14 +165,14 @@ export const authApi = apiSlice.injectEndpoints({
               accessToken: result.data.data.token,
               user: result.data.data.user,
             }),
-            { expires: 0.5 }
+            { expires: 0.5 },
           );
 
           dispatch(
             userLoggedIn({
               accessToken: result.data.data.token,
               user: result.data.data.user,
-            })
+            }),
           );
         } catch (err) {
           // do nothing
