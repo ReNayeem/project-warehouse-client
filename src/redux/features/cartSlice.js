@@ -5,7 +5,7 @@ import { notifyError, notifySuccess } from "@/utils/toast";
 const initialState = {
   cart_products: [],
   orderQuantity: 1,
-  cartMiniOpen:false,
+  cartMiniOpen: false,
 };
 
 export const cartSlice = createSlice({
@@ -29,7 +29,9 @@ export const cartSlice = createSlice({
                 state.orderQuantity !== 1
                   ? state.orderQuantity + item.orderQuantity
                   : item.orderQuantity + 1;
-              notifySuccess(`${state.orderQuantity} ${item.title} added to cart`);
+              notifySuccess(
+                `${state.orderQuantity} ${item.title} added to cart`,
+              );
             } else {
               notifyError("No more quantity available for this product!");
               state.orderQuantity = 1;
@@ -62,7 +64,7 @@ export const cartSlice = createSlice({
     },
     remove_product: (state, { payload }) => {
       state.cart_products = state.cart_products.filter(
-        (item) => item._id !== payload.id
+        (item) => item._id !== payload.id,
       );
       setLocalStorage("cart_products", state.cart_products);
       notifyError(`${payload.title} Remove from cart`);
@@ -73,18 +75,20 @@ export const cartSlice = createSlice({
     initialOrderQuantity: (state, { payload }) => {
       state.orderQuantity = 1;
     },
-    clearCart:(state) => {
-      const isClearCart = window.confirm('Are you sure you want to remove all items ?');
-      if(isClearCart){
-        state.cart_products = []
+    clearCart: (state) => {
+      const isClearCart = window.confirm(
+        "Are you sure you want to remove all items ?",
+      );
+      if (isClearCart) {
+        state.cart_products = [];
       }
       setLocalStorage("cart_products", state.cart_products);
     },
-    openCartMini:(state,{payload}) => {
-      state.cartMiniOpen = true
+    openCartMini: (state, { payload }) => {
+      state.cartMiniOpen = true;
     },
-    closeCartMini:(state,{payload}) => {
-      state.cartMiniOpen = false
+    closeCartMini: (state, { payload }) => {
+      state.cartMiniOpen = false;
     },
   },
 });

@@ -13,7 +13,8 @@ import ShopTopRight from "./shop-top-right";
 import ResetButton from "./shop-filter/reset-button";
 
 const ShopArea = ({ all_products, products, otherProps }) => {
-  const {priceFilterValues,selectHandleFilter,currPage,setCurrPage} = otherProps;
+  const { priceFilterValues, selectHandleFilter, currPage, setCurrPage } =
+    otherProps;
   const [filteredRows, setFilteredRows] = useState(products);
   const [pageStart, setPageStart] = useState(0);
   const [countOfPage, setCountOfPage] = useState(12);
@@ -51,7 +52,7 @@ const ShopArea = ({ all_products, products, otherProps }) => {
                 {/* brand */}
                 <ProductBrand setCurrPage={setCurrPage} />
                 {/* reset filter */}
-                <ResetButton/>
+                <ResetButton />
               </div>
             </div>
             <div className="col-xl-9 col-lg-8">
@@ -65,7 +66,7 @@ const ShopArea = ({ all_products, products, otherProps }) => {
                             ? 0
                             : filteredRows.slice(
                                 pageStart,
-                                pageStart + countOfPage
+                                pageStart + countOfPage,
                               ).length
                         }
                         total={all_products.length}

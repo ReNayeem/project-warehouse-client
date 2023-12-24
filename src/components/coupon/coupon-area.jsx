@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import ErrorMsg from "../common/error-msg";
 import CouponItem from "./coupon-item";
 import { useGetOfferCouponsQuery } from "@/redux/features/coupon/couponApi";
@@ -21,7 +21,7 @@ const CouponArea = () => {
   let content = null;
 
   if (isLoading) {
-    content = <CouponLoader loading={isLoading}/>;
+    content = <CouponLoader loading={isLoading} />;
   }
 
   if (!isLoading && isError) {

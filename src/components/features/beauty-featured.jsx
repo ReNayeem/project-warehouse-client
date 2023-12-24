@@ -1,37 +1,50 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 // internal
-import featured_1 from '@assets/img/product/featured/featured-1.png';
-import featured_2 from '@assets/img/product/featured/featured-2.png';
-import featured_3 from '@assets/img/product/featured/featured-3.png';
+import featured_1 from "@assets/img/product/featured/featured-1.png";
+import featured_2 from "@assets/img/product/featured/featured-2.png";
+import featured_3 from "@assets/img/product/featured/featured-3.png";
 
-
-
-// featured data 
+// featured data
 const featured_data = [
   {
     id: 1,
     img: featured_1,
-    title: <>Matte Liquid <br /> Lipstick & Lip Liner</>,
-    subtitle: 'Molestias internos et commodi tempora dolores sapiente sed iste.',
+    title: (
+      <>
+        Matte Liquid <br /> Lipstick & Lip Liner
+      </>
+    ),
+    subtitle:
+      "Molestias internos et commodi tempora dolores sapiente sed iste.",
     save: 72,
   },
   {
     id: 2,
     img: featured_2,
-    title: <>Crushed Liquid <br /> Lip  - Cherry Crush</>,
-    subtitle: 'Molestias internos et commodi tempora dolores sapiente sed iste.',
+    title: (
+      <>
+        Crushed Liquid <br /> Lip - Cherry Crush
+      </>
+    ),
+    subtitle:
+      "Molestias internos et commodi tempora dolores sapiente sed iste.",
     save: 98,
   },
   {
     id: 3,
     img: featured_3,
-    title: <>Mega Waterproof <br /> Concealer  - 125 Bisque</>,
-    subtitle: 'Molestias internos et commodi tempora dolores sapiente sed iste.',
+    title: (
+      <>
+        Mega Waterproof <br /> Concealer - 125 Bisque
+      </>
+    ),
+    subtitle:
+      "Molestias internos et commodi tempora dolores sapiente sed iste.",
     save: 133,
   },
-]
+];
 
 const BeautyFeatured = () => {
   return (
@@ -39,7 +52,7 @@ const BeautyFeatured = () => {
       <section className="tp-featured-product-area pt-70 pb-150">
         <div className="container">
           <div className="row gx-0">
-            {featured_data.map(item => (
+            {featured_data.map((item) => (
               <div key={item.id} className="col-lg-4 col-md-6">
                 <div className="tp-featured-item-3 text-center">
                   <div className="tp-featured-thumb-3 d-flex align-items-end justify-content-center">

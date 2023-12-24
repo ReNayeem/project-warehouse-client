@@ -14,7 +14,7 @@ const ShopCategoryArea = () => {
         .toLowerCase()
         .replace("&", "")
         .split(" ")
-        .join("-")}`
+        .join("-")}`,
     );
   };
 

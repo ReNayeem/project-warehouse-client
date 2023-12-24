@@ -11,8 +11,8 @@ const BlogPostBoxPage = () => {
     <Wrapper>
       <SEO pageTitle="Blog" />
       <HeaderTwo style_2={true} />
-      <BlogBreadcrumb/>
-      <BlogPostboxArea/>
+      <BlogBreadcrumb />
+      <BlogPostboxArea />
       <Footer primary_style={true} />
     </Wrapper>
   );

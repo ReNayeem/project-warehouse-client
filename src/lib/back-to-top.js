@@ -2,12 +2,10 @@ export default function BackToTop(value) {
   const result = document.querySelector(value);
   if (result) {
     document.addEventListener("scroll", () => {
-      if (
-        window.scrollY > 200
-      ) {
-        result.classList.add('back-to-top-btn-show')
+      if (window.scrollY > 200) {
+        result.classList.add("back-to-top-btn-show");
       } else {
-        result.classList.remove('back-to-top-btn-show')
+        result.classList.remove("back-to-top-btn-show");
       }
     });
     result.addEventListener("click", () => {

@@ -1,6 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
-import { ArrowRightLong, ArrowRightLongPrev } from '@/svg';
+import React from "react";
+import Link from "next/link";
+import { ArrowRightLong, ArrowRightLongPrev } from "@/svg";
 
 const PostboxDetailsNav = () => {
   return (
@@ -9,14 +9,16 @@ const PostboxDetailsNav = () => {
         <div className="tp-postbox-details-navigation-icon mr-15">
           <span>
             <Link href="/blog-details">
-              <ArrowRightLongPrev/>
+              <ArrowRightLongPrev />
             </Link>
           </span>
         </div>
         <div className="tp-postbox-details-navigation-content">
           <span>Previous Post</span>
           <h3 className="tp-postbox-details-navigation-title">
-            <Link href="/blog-details">Hiring the Right Sales Team at <br /> the Right Time</Link>
+            <Link href="/blog-details">
+              Hiring the Right Sales Team at <br /> the Right Time
+            </Link>
           </h3>
         </div>
       </div>
@@ -24,13 +26,15 @@ const PostboxDetailsNav = () => {
         <div className="tp-postbox-details-navigation-content">
           <span>Next Post</span>
           <h3 className="tp-postbox-details-navigation-title">
-            <Link href="/blog-details">Fully embrace the return of <br /> 90s fashion</Link>
+            <Link href="/blog-details">
+              Fully embrace the return of <br /> 90s fashion
+            </Link>
           </h3>
         </div>
         <div className="tp-postbox-details-navigation-icon ml-15">
           <span>
             <Link href="/blog-details">
-              <ArrowRightLong/>
+              <ArrowRightLong />
             </Link>
           </span>
         </div>

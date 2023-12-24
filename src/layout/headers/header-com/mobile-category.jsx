@@ -7,19 +7,22 @@ import ErrorMsg from "@/components/common/error-msg";
 import Loader from "@/components/loader/loader";
 
 const MobileCategory = ({ isCategoryActive, categoryType }) => {
-  const {data: categories,isError,isLoading} = useGetProductTypeCategoryQuery(categoryType);
-  const [isActiveSubMenu,setIsActiveSubMenu] = useState("")
+  const {
+    data: categories,
+    isError,
+    isLoading,
+  } = useGetProductTypeCategoryQuery(categoryType);
+  const [isActiveSubMenu, setIsActiveSubMenu] = useState("");
   const router = useRouter();
 
   // handleOpenSubMenu
   const handleOpenSubMenu = (title) => {
-    if(title === isActiveSubMenu){
-      setIsActiveSubMenu("")
+    if (title === isActiveSubMenu) {
+      setIsActiveSubMenu("");
+    } else {
+      setIsActiveSubMenu(title);
     }
-    else {
-      setIsActiveSubMenu(title)
-    }
-  }
+  };
 
   // handle category route
   const handleCategoryRoute = (title, route) => {
@@ -29,7 +32,7 @@ const MobileCategory = ({ isCategoryActive, categoryType }) => {
           .toLowerCase()
           .replace("&", "")
           .split(" ")
-          .join("-")}`
+          .join("-")}`,
       );
     } else {
       router.push(
@@ -37,7 +40,7 @@ const MobileCategory = ({ isCategoryActive, categoryType }) => {
           .toLowerCase()
           .replace("&", "")
           .split(" ")
-          .join("-")}`
+          .join("-")}`,
       );
     }
   };
@@ -69,14 +72,21 @@ const MobileCategory = ({ isCategoryActive, categoryType }) => {
           )}
           {item.parent}
           {item.children && (
-            <button onClick={()=> handleOpenSubMenu(item.parent)} className="dropdown-toggle-btn">
+            <button
+              onClick={() => handleOpenSubMenu(item.parent)}
+              className="dropdown-toggle-btn"
+            >
               <i className="fa-regular fa-angle-right"></i>
             </button>
           )}
         </a>
 
         {item.children && (
-          <ul className={`tp-submenu ${isActiveSubMenu === item.parent ? 'active':''}`}>
+          <ul
+            className={`tp-submenu ${
+              isActiveSubMenu === item.parent ? "active" : ""
+            }`}
+          >
             {item.children.map((child, i) => (
               <li
                 key={i}

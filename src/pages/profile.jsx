@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import Cookies from "js-cookie";
-import { useRouter } from "next/router";
+
 // internal
 import SEO from "@/components/seo";
 import Wrapper from "@/layout/wrapper";
@@ -9,16 +8,15 @@ import Footer from "@/layout/footers/footer";
 import ProfileArea from "@/components/my-account/profile-area";
 import { useGetUserOrdersQuery } from "@/redux/features/order/orderApi";
 import Loader from "@/components/loader/loader";
+import { RedirectToSignIn, useAuth } from "@clerk/nextjs";
 
 const ProfilePage = () => {
-  const router = useRouter();
-  const {data: orderData, isError, isLoading, } = useGetUserOrdersQuery();
-  useEffect(() => {
-    const isAuthenticate = Cookies.get("userInfo");
-    if (!isAuthenticate) {
-      router.push("/login");
-    }
-  }, [router]);
+  const auth = useAuth();
+  const { data: orderData, isError, isLoading } = useGetUserOrdersQuery();
+
+  if (!auth.sessionId) {
+    return <RedirectToSignIn />;
+  }
 
   if (isLoading) {
     return (

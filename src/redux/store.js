@@ -12,14 +12,14 @@ import orderSlice from "./features/order/orderSlice";
 const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
-    auth:authSlice,
-    productModal:productModalSlice,
-    shopFilter:shopFilterSlice,
-    cart:cartSlice,
-    wishlist:wishlistSlice,
-    compare:compareSlice,
-    coupon:couponSlice,
-    order:orderSlice,
+    auth: authSlice,
+    productModal: productModalSlice,
+    shopFilter: shopFilterSlice,
+    cart: cartSlice,
+    wishlist: wishlistSlice,
+    compare: compareSlice,
+    coupon: couponSlice,
+    order: orderSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),

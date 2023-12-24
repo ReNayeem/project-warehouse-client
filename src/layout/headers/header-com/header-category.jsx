@@ -22,7 +22,7 @@ const HeaderCategory = ({ isCategoryActive, categoryType = "electronics" }) => {
           .toLowerCase()
           .replace("&", "")
           .split(" ")
-          .join("-")}`
+          .join("-")}`,
       );
     } else {
       router.push(
@@ -30,7 +30,7 @@ const HeaderCategory = ({ isCategoryActive, categoryType = "electronics" }) => {
           .toLowerCase()
           .replace("&", "")
           .split(" ")
-          .join("-")}`
+          .join("-")}`,
       );
     }
   };

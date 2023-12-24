@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   productItem: null,
-  isModalOpen:false,
+  isModalOpen: false,
 };
 
 export const productModalSlice = createSlice({
@@ -13,12 +13,13 @@ export const productModalSlice = createSlice({
       state.productItem = payload;
       state.isModalOpen = true;
     },
-    handleModalClose:(state,{payload}) => {
+    handleModalClose: (state, { payload }) => {
       state.isModalOpen = false;
       state.productItem = null;
-    }
+    },
   },
 });
 
-export const { handleProductModal,handleModalClose } = productModalSlice.actions;
+export const { handleProductModal, handleModalClose } =
+  productModalSlice.actions;
 export default productModalSlice.reducer;

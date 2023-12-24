@@ -12,7 +12,7 @@ function SingleLoader({ loading }) {
   );
 }
 
-const HomeThreeCategoryLoader = ({loading}) => {
+const HomeThreeCategoryLoader = ({ loading }) => {
   return (
     <>
       <SingleLoader loading={loading} />

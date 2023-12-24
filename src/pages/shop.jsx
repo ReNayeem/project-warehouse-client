@@ -50,10 +50,14 @@ const ShopPage = ({ query }) => {
   let content = null;
 
   if (isLoading) {
-    content = <ShopLoader loading={isLoading}/>;
+    content = <ShopLoader loading={isLoading} />;
   }
   if (!isLoading && isError) {
-    content = <div className="pb-80 text-center"><ErrorMsg msg="There was an error" /></div>;
+    content = (
+      <div className="pb-80 text-center">
+        <ErrorMsg msg="There was an error" />
+      </div>
+    );
   }
   if (!isLoading && !isError && products?.data?.length === 0) {
     content = <ErrorMsg msg="No Products found!" />;
@@ -85,7 +89,7 @@ const ShopPage = ({ query }) => {
     }
     // price filter
     product_items = product_items.filter(
-      (p) => p.price >= priceValue[0] && p.price <= priceValue[1]
+      (p) => p.price >= priceValue[0] && p.price <= priceValue[1],
     );
 
     // status filter
@@ -102,7 +106,7 @@ const ShopPage = ({ query }) => {
       product_items = product_items.filter(
         (p) =>
           p.parent.toLowerCase().replace("&", "").split(" ").join("-") ===
-          query.category
+          query.category,
       );
     }
 
@@ -111,7 +115,7 @@ const ShopPage = ({ query }) => {
       product_items = product_items.filter(
         (p) =>
           p.children.toLowerCase().replace("&", "").split(" ").join("-") ===
-          query.subCategory
+          query.subCategory,
       );
     }
 
@@ -137,7 +141,7 @@ const ShopPage = ({ query }) => {
       product_items = product_items.filter(
         (p) =>
           p.brand.name.toLowerCase().replace("&", "").split(" ").join("-") ===
-          query.brand
+          query.brand,
       );
     }
 

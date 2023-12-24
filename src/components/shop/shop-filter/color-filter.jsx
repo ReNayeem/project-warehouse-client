@@ -7,28 +7,28 @@ import { useGetAllProductsQuery } from "@/redux/features/productApi";
 import { handleFilterSidebarClose } from "@/redux/features/shop-filter-slice";
 import ShopColorLoader from "@/components/loader/shop/color-filter-loader";
 
-const ColorFilter = ({setCurrPage,shop_right=false}) => {
+const ColorFilter = ({ setCurrPage, shop_right = false }) => {
   const { data: products, isError, isLoading } = useGetAllProductsQuery();
   const router = useRouter();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  // handle color 
+  // handle color
   const handleColor = (clr) => {
-    setCurrPage(1)
+    setCurrPage(1);
     router.push(
-      `/${shop_right?'shop-right-sidebar':'shop'}?color=${clr
+      `/${shop_right ? "shop-right-sidebar" : "shop"}?color=${clr
         .toLowerCase()
         .replace("&", "")
         .split(" ")
-        .join("-")}`
-    )
+        .join("-")}`,
+    );
     dispatch(handleFilterSidebarClose());
-  }
+  };
   // decide what to render
   let content = null;
 
   if (isLoading) {
-    content = <ShopColorLoader loading={isLoading}/>;
+    content = <ShopColorLoader loading={isLoading} />;
   }
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
@@ -63,10 +63,7 @@ const ColorFilter = ({setCurrPage,shop_right=false}) => {
                 }
                 readOnly
               />
-              <label
-                onClick={() => handleColor(item.name)}
-                htmlFor={item.name}
-              >
+              <label onClick={() => handleColor(item.name)} htmlFor={item.name}>
                 {item.name}
               </label>
               <span

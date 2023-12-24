@@ -37,9 +37,13 @@ const sliderSetting = {
 };
 
 const OfferProducts = () => {
-  const {data: products,isError,isLoading} = useGetOfferProductsQuery("electronics");
+  const {
+    data: products,
+    isError,
+    isLoading,
+  } = useGetOfferProductsQuery("electronics");
   // decide what to render
-  console.log(products)
+  console.log(products);
   let content = null;
   if (isLoading) {
     content = <HomeOfferPrdLoader loading={isLoading} />;

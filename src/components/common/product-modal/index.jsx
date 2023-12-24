@@ -21,23 +21,23 @@ const customStyles = {
 
 const ProductModal = () => {
   const { productItem, isModalOpen } = useSelector(
-    (state) => state.productModal
+    (state) => state.productModal,
   );
-  const { img, imageURLs,status } = productItem || {};
+  const { img, imageURLs, status } = productItem || {};
   const [activeImg, setActiveImg] = useState(img);
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   // active image change when img change
   useEffect(() => {
     setActiveImg(img);
-    dispatch(initialOrderQuantity())
-    setLoading(false)
-  }, [img,dispatch]);
+    dispatch(initialOrderQuantity());
+    setLoading(false);
+  }, [img, dispatch]);
 
   // handle image active
   const handleImageActive = (item) => {
     setActiveImg(item.img);
-    setLoading(true)
+    setLoading(true);
   };
 
   return (

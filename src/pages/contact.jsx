@@ -13,8 +13,8 @@ const ContactPage = () => {
       <SEO pageTitle="Contact" />
       <HeaderTwo style_2={true} />
       <ContactBreadcrumb />
-      <ContactArea/>
-      <ContactMap/>
+      <ContactArea />
+      <ContactMap />
       <Footer primary_style={true} />
     </Wrapper>
   );

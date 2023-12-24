@@ -46,22 +46,18 @@ const slider_data = [
   },
 ];
 
-// feature item 
+// feature item
 function FeatureItem({ icon, title }) {
   return (
     <div className="tp-slider-feature-item-3 d-flex mb-30">
       <div className="tp-slider-feature-icon-3">
-        <span>
-          {icon}
-        </span>
+        <span>{icon}</span>
       </div>
       <div className="tp-slider-feature-content-3">
-        <h3 className="tp-slider-feature-title-3">
-          {title}
-        </h3>
+        <h3 className="tp-slider-feature-title-3">{title}</h3>
       </div>
     </div>
-  )
+  );
 }
 
 const BeautyBanner = () => {
@@ -91,9 +87,30 @@ const BeautyBanner = () => {
                         Be your kind of beauty
                       </h3>
                       <div className="tp-slider-feature-3 d-flex flex-wrap align-items-center p-relative z-index-1 mb-15">
-                        <FeatureItem icon={<Cosmetics />} title={<>High-end <br /> Cosmetics</>} />
-                        <FeatureItem icon={<VeganProduct />} title={<>Vegan <br /> Product</>} />
-                        <FeatureItem icon={<Meckoup />} title={<>Express <br /> Make-up</>} />
+                        <FeatureItem
+                          icon={<Cosmetics />}
+                          title={
+                            <>
+                              High-end <br /> Cosmetics
+                            </>
+                          }
+                        />
+                        <FeatureItem
+                          icon={<VeganProduct />}
+                          title={
+                            <>
+                              Vegan <br /> Product
+                            </>
+                          }
+                        />
+                        <FeatureItem
+                          icon={<Meckoup />}
+                          title={
+                            <>
+                              Express <br /> Make-up
+                            </>
+                          }
+                        />
                       </div>
                       <div className="tp-slider-btn-3">
                         <Link

@@ -32,4 +32,4 @@ export {
   HomeThreePrdLoader,
   HomeThreePrdTwoLoader,
   HomeThreeTrendingPrdLoader,
-}
+};

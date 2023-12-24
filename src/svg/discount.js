@@ -11,7 +11,7 @@ const Discount = () => {
     >
       <mask
         id="mask0_1211_583"
-        style={{maskType:'alpha'}}
+        style={{ maskType: "alpha" }}
         maskUnits="userSpaceOnUse"
         x="0"
         y="0"

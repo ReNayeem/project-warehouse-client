@@ -1,13 +1,13 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
-import { useState } from 'react';
+import { useState } from "react";
 // internal
-import PopupVideo from '@/components/common/popup-video';
+import PopupVideo from "@/components/common/popup-video";
 
-// slider setting 
+// slider setting
 const slider_setting = {
   slidesPerView: 1,
   spaceBetween: 0,
@@ -18,25 +18,20 @@ const slider_setting = {
     nextEl: ".tp-postbox-slider-button-next",
     prevEl: ".tp-postbox-slider-button-prev",
   },
-}
+};
 
 const BlogItem = ({ item = {} }) => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   return (
     <>
-      <article
-        className="tp-postbox-item format-image mb-50 transition-3"
-      >
-        {!item.blockquote &&
-          !item.video &&
-          !item.audio &&
-          !item.slider && (
-            <div className="tp-postbox-thumb w-img">
-              <Link href={`/blog-details/${item.id}`}>
-                <Image src={item.img} alt="blog img" />
-              </Link>
-            </div>
-          )}
+      <article className="tp-postbox-item format-image mb-50 transition-3">
+        {!item.blockquote && !item.video && !item.audio && !item.slider && (
+          <div className="tp-postbox-thumb w-img">
+            <Link href={`/blog-details/${item.id}`}>
+              <Image src={item.img} alt="blog img" />
+            </Link>
+          </div>
+        )}
         {item.video && (
           <div className="tp-postbox-thumb tp-postbox-video w-img p-relative">
             <Link href={`/blog-details/${item.id}`}>
@@ -52,14 +47,15 @@ const BlogItem = ({ item = {} }) => {
         )}
         {item.audio && (
           <div className="tp-postbox-thumb tp-postbox-audio w-img p-relative">
-            <iframe
-              allow="autoplay"
-              src={item.audio_id}
-            ></iframe>
+            <iframe allow="autoplay" src={item.audio_id}></iframe>
           </div>
         )}
         {item.slider && (
-          <Swiper {...slider_setting} modules={[Navigation, Autoplay]} className="tp-postbox-thumb tp-postbox-slider swiper-container w-img p-relative">
+          <Swiper
+            {...slider_setting}
+            modules={[Navigation, Autoplay]}
+            className="tp-postbox-thumb tp-postbox-slider swiper-container w-img p-relative"
+          >
             {item.slider_images.map((img, i) => (
               <SwiperSlide key={i} className="tp-postbox-slider-item">
                 <Image src={img} alt="slider img" />
@@ -93,9 +89,7 @@ const BlogItem = ({ item = {} }) => {
               </span>
             </div>
             <h3 className="tp-postbox-title">
-              <Link href={`/blog-details/${item.id}`}>
-                {item.title}
-              </Link>
+              <Link href={`/blog-details/${item.id}`}>{item.title}</Link>
             </h3>
             <div className="tp-postbox-text">
               <p>

@@ -8,24 +8,38 @@ const ReviewItem = ({ review }) => {
   return (
     <div className="tp-product-details-review-avater d-flex align-items-start">
       <div className="tp-product-details-review-avater-thumb">
-        {!userId?.imageURL && <h5 className="review-name">{userId?.name[0]}</h5>}
+        {!userId?.imageURL && (
+          <h5 className="review-name">{userId?.name[0]}</h5>
+        )}
         <a href="#">
-          {userId?.imageURL && <Image src={userId?.imageURL} alt="user img" width={60} height={60} />}
+          {userId?.imageURL && (
+            <Image
+              src={userId?.imageURL}
+              alt="user img"
+              width={60}
+              height={60}
+            />
+          )}
         </a>
       </div>
       <div className="tp-product-details-review-avater-content">
         <div className="tp-product-details-review-avater-rating d-flex align-items-center">
-          <Rating allowFraction size={16} initialValue={rating} readonly={true} />
+          <Rating
+            allowFraction
+            size={16}
+            initialValue={rating}
+            readonly={true}
+          />
         </div>
-        <h3 className="tp-product-details-review-avater-title">{userId?.name}</h3>
+        <h3 className="tp-product-details-review-avater-title">
+          {userId?.name}
+        </h3>
         <span className="tp-product-details-review-avater-meta">
           {dayjs(createdAt).format("MMMM D, YYYY")}
         </span>
 
         <div className="tp-product-details-review-avater-comment">
-          <p>
-            {comment}
-          </p>
+          <p>{comment}</p>
         </div>
       </div>
     </div>

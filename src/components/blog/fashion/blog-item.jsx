@@ -4,7 +4,7 @@ import { Tags } from "@/svg";
 import Link from "next/link";
 
 const BlogItem = ({ blog }) => {
-  const { id,img, date, title, tags } = blog || {};
+  const { id, img, date, title, tags } = blog || {};
   return (
     <div className="tp-blog-item-2 mb-40">
       <div className="tp-blog-thumb-2 p-relative fix">

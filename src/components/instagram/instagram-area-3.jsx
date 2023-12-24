@@ -27,7 +27,11 @@ const InstagramAreaThree = () => {
             {instagram_data.map((item) => (
               <div className="col" key={item.id}>
                 <div className="tp-instagram-item-2">
-                  <Image src={item.img} alt="instagram img" style={{width:'100%',height:'100%'}} />
+                  <Image
+                    src={item.img}
+                    alt="instagram img"
+                    style={{ width: "100%", height: "100%" }}
+                  />
                   <div className="tp-instagram-icon-2">
                     <a href={item.link} target="_blank" className="popup-image">
                       <i className="fa-brands fa-instagram"></i>

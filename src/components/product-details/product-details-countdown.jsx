@@ -8,9 +8,7 @@ const ProductDetailsCountdown = ({ offerExpiryTime }) => {
       <h4 className="tp-product-details-countdown-title">
         <i className="fa-solid fa-fire-flame-curved"></i> Flash Sale end in:{" "}
       </h4>
-      <div
-        className="tp-product-details-countdown-time"
-      >
+      <div className="tp-product-details-countdown-time">
         {dayjs().isAfter(offerExpiryTime) ? (
           <ul>
             <li>

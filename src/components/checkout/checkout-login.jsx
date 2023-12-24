@@ -1,26 +1,20 @@
-import { useState } from "react";
-import LoginForm from "../forms/login-form";
+import { RedirectToSignIn, SignIn, useAuth, useSession } from "@clerk/nextjs";
 
 const CheckoutLogin = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const auth = useAuth();
+  const session = useSession();
+
   return (
     <div className="tp-checkout-verify-item">
       <p className="tp-checkout-verify-reveal">
-        Returning customer?{" "}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          type="button"
-          className="tp-checkout-login-form-reveal-btn"
-        >
-          Click here to login
-        </button>
+        {auth.sessionId ? (
+          <>Logged in as: {session.session.user.fullName}</>
+        ) : (
+          <>
+            Returning customer? <SignIn />
+          </>
+        )}
       </p>
-
-      {isOpen && (
-        <div id="tpReturnCustomerLoginForm" className="tp-return-customer">
-          <LoginForm />
-        </div>
-      )}
     </div>
   );
 };

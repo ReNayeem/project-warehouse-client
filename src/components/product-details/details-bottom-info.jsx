@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import payment_option_img from '@assets/img/product/icons/payment-option.png';
+import payment_option_img from "@assets/img/product/icons/payment-option.png";
 
-const DetailsBottomInfo = ({sku,category,tag}) => {
+const DetailsBottomInfo = ({ sku, category, tag }) => {
   return (
     <>
       {/* product-details-query */}

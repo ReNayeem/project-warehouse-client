@@ -14,13 +14,13 @@ const InputRange = ({ STEP, MIN, MAX, values, handleChanges }) => {
             {...props}
             style={{
               ...props.style,
-              height: '3px',
-              width: '100%',
+              height: "3px",
+              width: "100%",
               background: getTrackBackground({
                 values: values,
                 colors: ["#EDEDED", "#0989FF", "#EDEDED"],
                 min: MIN,
-                max: MAX
+                max: MAX,
               }),
             }}
           >
@@ -32,10 +32,10 @@ const InputRange = ({ STEP, MIN, MAX, values, handleChanges }) => {
             {...props}
             style={{
               ...props.style,
-              height: '17px',
-              width: '5px',
-              backgroundColor: '#0989FF',
-              backgroundColor: isDragged ? "#0989FF" : "#0989FF"
+              height: "17px",
+              width: "5px",
+              backgroundColor: "#0989FF",
+              backgroundColor: isDragged ? "#0989FF" : "#0989FF",
             }}
           />
         )}
@@ -43,6 +43,5 @@ const InputRange = ({ STEP, MIN, MAX, values, handleChanges }) => {
     </>
   );
 };
-
 
 export default InputRange;

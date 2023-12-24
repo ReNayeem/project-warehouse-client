@@ -1,5 +1,5 @@
-import React from 'react';
-import Loader from './loader';
+import React from "react";
+import Loader from "./loader";
 
 function SingleLoader({ loading }) {
   return (
@@ -14,7 +14,7 @@ function SingleLoader({ loading }) {
 
 const SearchPrdLoader = ({ loading }) => {
   return (
-    <div className='container'>
+    <div className="container">
       <div className="row">
         <SingleLoader loading={loading} />
         <SingleLoader loading={loading} />
