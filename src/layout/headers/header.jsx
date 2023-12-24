@@ -10,11 +10,10 @@ import useCartInfo from "@/hooks/use-cart-info";
 import OffCanvas from "@/components/common/off-canvas";
 import { openCartMini } from "@/redux/features/cartSlice";
 import HeaderCategory from "./header-com/header-category";
-import HeaderTopRight from "./header-com/header-top-right";
 import HeaderMainRight from "./header-com/header-main-right";
 import CartMiniSidebar from "@/components/common/cart-mini-sidebar";
 import HeaderSearchForm from "@/components/forms/header-search-form";
-import { CartTwo, CategoryMenu, Compare, Menu, Phone, ShippingCar, Wishlist } from "@/svg";
+import { CartTwo, CategoryMenu, Compare, Menu, Phone, Wishlist } from "@/svg";
 
 const Header = () => {
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -27,27 +26,6 @@ const Header = () => {
     <>
       <header>
         <div className="tp-header-area p-relative z-index-11">
-          {/* header top start  */}
-          <div className="tp-header-top black-bg p-relative z-index-1 d-none d-md-block">
-            <div className="container">
-              <div className="row align-items-center">
-                <div className="col-md-6">
-                  <div className="tp-header-welcome d-flex align-items-center">
-                    <span>
-                      <ShippingCar />
-                    </span>
-                    <p>FREE Express Shipping On Orders $570+</p>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="tp-header-top-right d-flex align-items-center justify-content-end">
-                    <HeaderTopRight />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* header main start */}
           <div className="tp-header-main tp-header-sticky">
             <div className="container">
@@ -89,7 +67,10 @@ const Header = () => {
                         All Departments
                       </button>
                       <nav className="tp-category-menu-content">
-                        <HeaderCategory categoryType="electronics" isCategoryActive={isCategoryActive} />
+                        <HeaderCategory
+                          categoryType="electronics"
+                          isCategoryActive={isCategoryActive}
+                        />
                       </nav>
                     </div>
                     {/* category end */}
@@ -124,7 +105,10 @@ const Header = () => {
       </header>
 
       {/* sticky header start */}
-      <div id="header-sticky-2" className={`tp-header-sticky-area ${sticky ? 'header-sticky-2' : ''}`}>
+      <div
+        id="header-sticky-2"
+        className={`tp-header-sticky-area ${sticky ? "header-sticky-2" : ""}`}
+      >
         <div className="container">
           <div className="tp-mega-menu-wrapper p-relative">
             <div className="row align-items-center">
@@ -152,17 +136,27 @@ const Header = () => {
                   <div className="tp-header-action-item d-none d-lg-block">
                     <Link href="/wishlist" className="tp-header-action-btn">
                       <Wishlist />
-                      <span className="tp-header-action-badge">{wishlist.length}</span>
+                      <span className="tp-header-action-badge">
+                        {wishlist.length}
+                      </span>
                     </Link>
                   </div>
                   <div className="tp-header-action-item">
-                    <button onClick={() => dispatch(openCartMini())} type="button" className="tp-header-action-btn cartmini-open-btn">
+                    <button
+                      onClick={() => dispatch(openCartMini())}
+                      type="button"
+                      className="tp-header-action-btn cartmini-open-btn"
+                    >
                       <CartTwo />
                       <span className="tp-header-action-badge">{quantity}</span>
                     </button>
                   </div>
                   <div className="tp-header-action-item d-lg-none">
-                    <button onClick={() => setIsCanvasOpen(true)} type="button" className="tp-header-action-btn tp-offcanvas-open-btn">
+                    <button
+                      onClick={() => setIsCanvasOpen(true)}
+                      type="button"
+                      className="tp-header-action-btn tp-offcanvas-open-btn"
+                    >
                       <Menu />
                     </button>
                   </div>
@@ -179,7 +173,11 @@ const Header = () => {
       {/* cart mini sidebar end */}
 
       {/* off canvas start */}
-      <OffCanvas isOffCanvasOpen={isOffCanvasOpen} setIsCanvasOpen={setIsCanvasOpen} categoryType="electronics" />
+      <OffCanvas
+        isOffCanvasOpen={isOffCanvasOpen}
+        setIsCanvasOpen={setIsCanvasOpen}
+        categoryType="electronics"
+      />
       {/* off canvas end */}
     </>
   );
