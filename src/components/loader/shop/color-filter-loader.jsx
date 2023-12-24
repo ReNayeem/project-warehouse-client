@@ -22,4 +22,3 @@ const ShopColorLoader = ({ loading }) => {
 };
 
 export default ShopColorLoader;
- 

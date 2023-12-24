@@ -12,7 +12,7 @@ function SingleLoader({ loading }) {
   );
 }
 
-const HomeTwoFeaturedPrdLoader = ({loading}) => {
+const HomeTwoFeaturedPrdLoader = ({ loading }) => {
   return (
     <div className="row">
       <SingleLoader loading={loading} />

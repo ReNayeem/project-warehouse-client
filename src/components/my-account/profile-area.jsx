@@ -2,11 +2,10 @@ import React from "react";
 import ProfileNavTab from "./profile-nav-tab";
 import ProfileShape from "./profile-shape";
 import NavProfileTab from "./nav-profile-tab";
-import ProfileInfo from "./profile-info";
-import ChangePassword from "./change-password";
+
 import MyOrders from "./my-orders";
 
-const ProfileArea = ({orderData}) => {
+const ProfileArea = ({ orderData }) => {
   return (
     <>
       <section className="profile__area pt-120 pb-120">
@@ -30,25 +29,6 @@ const ProfileArea = ({orderData}) => {
                     >
                       <NavProfileTab orderData={orderData} />
                     </div>
-
-                    <div
-                      className="tab-pane fade"
-                      id="nav-information"
-                      role="tabpanel"
-                      aria-labelledby="nav-information-tab"
-                    >
-                      <ProfileInfo />
-                    </div>
-
-                    <div
-                      className="tab-pane fade"
-                      id="nav-password"
-                      role="tabpanel"
-                      aria-labelledby="nav-password-tab"
-                    >
-                      <ChangePassword />
-                    </div>
-
                     <div
                       className="tab-pane fade"
                       id="nav-order"

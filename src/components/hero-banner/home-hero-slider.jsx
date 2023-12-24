@@ -56,22 +56,26 @@ const sliderData = [
 
 function Shape({ img, num }) {
   return (
-    <Image className={`tp-slider-shape-${num}`} src={img} alt="slider-shape" priority />
+    <Image
+      className={`tp-slider-shape-${num}`}
+      src={img}
+      alt="slider-shape"
+      priority
+    />
   );
 }
 
 const HomeHeroSlider = () => {
-  const [active,setActive] = useState(false);
+  const [active, setActive] = useState(false);
 
   // handleActiveIndex
   const handleActiveIndex = (index) => {
-    if(index === 2){
-      setActive(true)
+    if (index === 2) {
+      setActive(true);
+    } else {
+      setActive(false);
     }
-    else {
-      setActive(false)
-    }
-  }
+  };
   return (
     <>
       <section className="tp-slider-area p-relative z-index-1">
@@ -98,8 +102,8 @@ const HomeHeroSlider = () => {
                 item?.green_bg
                   ? "green-dark-bg"
                   : item?.is_light
-                  ? "is-light"
-                  : ""
+                    ? "is-light"
+                    : ""
               }`}
               style={{ backgroundColor: item.is_light && "#E3EDF6" }}
             >
@@ -127,9 +131,11 @@ const HomeHeroSlider = () => {
                       </p>
 
                       <div className="tp-slider-btn">
-                        <Link href="/shop" className="tp-btn tp-btn-2 tp-btn-white">
-                          Shop Now
-                          {" "} <ArrowRightLong />
+                        <Link
+                          href="/shop"
+                          className="tp-btn tp-btn-2 tp-btn-white"
+                        >
+                          Shop Now <ArrowRightLong />
                         </Link>
                       </div>
                     </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-const CheckoutCoupon = ({ handleCouponCode, couponRef,couponApplyMsg }) => {
+const CheckoutCoupon = ({ handleCouponCode, couponRef, couponApplyMsg }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { coupon_info } = useSelector((state) => state.coupon);
   return (
@@ -31,7 +31,11 @@ const CheckoutCoupon = ({ handleCouponCode, couponRef,couponApplyMsg }) => {
               Apply
             </button>
           </form>
-          {couponApplyMsg && <p className="p-2" style={{color:'green'}}>{couponApplyMsg}</p>}
+          {couponApplyMsg && (
+            <p className="p-2" style={{ color: "green" }}>
+              {couponApplyMsg}
+            </p>
+          )}
         </div>
       )}
     </div>

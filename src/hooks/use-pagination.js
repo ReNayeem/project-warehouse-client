@@ -15,7 +15,6 @@
 //     setPageCount(Math.ceil(items.length / itemsPerPage));
 //   }, [itemOffset, itemsPerPage, items]);
 
-
 //   const handlePageClick = (event) => {
 //     const newOffset = (event.selected * itemsPerPage) % items.length;
 //     setItemOffset(newOffset);

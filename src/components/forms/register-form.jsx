@@ -25,7 +25,12 @@ const RegisterForm = () => {
   const router = useRouter();
   const { redirect } = router.query;
   // react hook form
-  const {register,handleSubmit,formState: { errors },reset} = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
     resolver: yupResolver(schema),
   });
   // on submit

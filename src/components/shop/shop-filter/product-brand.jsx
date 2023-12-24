@@ -8,36 +8,38 @@ import { useGetActiveBrandsQuery } from "@/redux/features/brandApi";
 import { handleFilterSidebarClose } from "@/redux/features/shop-filter-slice";
 import ShopBrandLoader from "@/components/loader/shop/shop-brand-loader";
 
-const ProductBrand = ({setCurrPage,shop_right=false}) => {
+const ProductBrand = ({ setCurrPage, shop_right = false }) => {
   const { data: brands, isError, isLoading } = useGetActiveBrandsQuery();
   const router = useRouter();
   const dispatch = useDispatch();
-  // handle brand route 
+  // handle brand route
   const handleBrandRoute = (brand) => {
     setCurrPage(1);
     router.push(
-      `/${shop_right?'shop-right-sidebar':'shop'}?brand=${brand
+      `/${shop_right ? "shop-right-sidebar" : "shop"}?brand=${brand
         .toLowerCase()
         .replace("&", "")
         .split(" ")
-        .join("-")}`
-    )
+        .join("-")}`,
+    );
     dispatch(handleFilterSidebarClose());
-  }
+  };
   // decide what to render
   let content = null;
 
   if (isLoading) {
-    content = <ShopBrandLoader loading={isLoading}/>;
+    content = <ShopBrandLoader loading={isLoading} />;
   } else if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
   } else if (!isLoading && !isError && brands?.result?.length === 0) {
     content = <ErrorMsg msg="No Brands found!" />;
   } else if (!isLoading && !isError && brands?.result?.length > 0) {
     const all_brands = brands.result;
-    const sortedBrands = all_brands.slice().sort((a, b) => b.products.length - a.products.length);
-    const brand_items = sortedBrands.slice(0,6);
-    
+    const sortedBrands = all_brands
+      .slice()
+      .sort((a, b) => b.products.length - a.products.length);
+    const brand_items = sortedBrands.slice(0, 6);
+
     content = brand_items.map((b) => (
       <div key={b._id} className="tp-shop-widget-brand-item">
         <a

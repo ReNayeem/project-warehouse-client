@@ -28,16 +28,16 @@ const ShopRightSidebarPage = ({ query }) => {
 
   // handleChanges
   const handleChanges = (val) => {
-    setCurrPage(1)
+    setCurrPage(1);
     setPriceValue(val);
   };
 
   // selectHandleFilter
-  const selectHandleFilter = e => {
-    setSelectValue(e.value)
-  }
+  const selectHandleFilter = (e) => {
+    setSelectValue(e.value);
+  };
 
-  // other props 
+  // other props
   const otherProps = {
     priceFilterValues: {
       priceValue,
@@ -46,12 +46,12 @@ const ShopRightSidebarPage = ({ query }) => {
     selectHandleFilter,
     currPage,
     setCurrPage,
-  }
+  };
   // decide what to render
   let content = null;
 
   if (isLoading) {
-    content = <ShopLoader loading={isLoading} shopRight={true}/>;
+    content = <ShopLoader loading={isLoading} shopRight={true} />;
   }
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
@@ -62,65 +62,75 @@ const ShopRightSidebarPage = ({ query }) => {
   if (!isLoading && !isError && products?.data?.length > 0) {
     // products
     let product_items = products.data;
-    // select short filtering 
+    // select short filtering
     if (selectValue) {
-      if (selectValue === 'Default Sorting') {
+      if (selectValue === "Default Sorting") {
+        product_items = products.data;
+      } else if (selectValue === "Low to High") {
         product_items = products.data
-      }
-      else if (selectValue === 'Low to High') {
-        product_items = products.data.slice().sort((a, b) => Number(a.price) - Number(b.price));
-      }
-      else if (selectValue === 'High to Low') {
-        product_items = products.data.slice().sort((a, b) => Number(b.price) - Number(a.price));
-      }
-      else if (selectValue === 'New Added') {
-        product_items = products.data.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      }
-      else if (selectValue === 'On Sale') {
-        product_items = products.data.filter(p => p.discount > 0);
-      }
-      else {
+          .slice()
+          .sort((a, b) => Number(a.price) - Number(b.price));
+      } else if (selectValue === "High to Low") {
         product_items = products.data
+          .slice()
+          .sort((a, b) => Number(b.price) - Number(a.price));
+      } else if (selectValue === "New Added") {
+        product_items = products.data
+          .slice()
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      } else if (selectValue === "On Sale") {
+        product_items = products.data.filter((p) => p.discount > 0);
+      } else {
+        product_items = products.data;
       }
     }
     // price filter
     product_items = product_items.filter(
-      (p) => p.price >= priceValue[0] && p.price <= priceValue[1]
+      (p) => p.price >= priceValue[0] && p.price <= priceValue[1],
     );
 
     // status filter
     if (query.status) {
-      if (query.status === 'on-sale') {
-        product_items = product_items.filter(p => p.discount > 0)
-      }
-      else if (query.status === 'in-stock') {
-        product_items = product_items.filter(p => p.status === 'in-stock')
+      if (query.status === "on-sale") {
+        product_items = product_items.filter((p) => p.discount > 0);
+      } else if (query.status === "in-stock") {
+        product_items = product_items.filter((p) => p.status === "in-stock");
       }
     }
 
     // category filter
     if (query.category) {
       product_items = product_items.filter(
-        (p) => p.parent.toLowerCase().replace("&", "").split(" ").join("-") === query.category
+        (p) =>
+          p.parent.toLowerCase().replace("&", "").split(" ").join("-") ===
+          query.category,
       );
     }
 
     // color filter
     if (query.color) {
-      product_items = product_items.filter(product => {
+      product_items = product_items.filter((product) => {
         for (let i = 0; i < product.imageURLs.length; i++) {
           const color = product.imageURLs[i]?.color;
-          if (color && color?.name.toLowerCase().replace("&", "").split(" ").join("-") === query.color) {
+          if (
+            color &&
+            color?.name.toLowerCase().replace("&", "").split(" ").join("-") ===
+              query.color
+          ) {
             return true; // match found, include product in result
           }
         }
         return false; // no match found, exclude product from result
-      })
+      });
     }
 
     // brand filter
     if (query.brand) {
-      product_items = product_items.filter(p => p.brand.name.toLowerCase().replace("&", "").split(" ").join("-") === query.brand)
+      product_items = product_items.filter(
+        (p) =>
+          p.brand.name.toLowerCase().replace("&", "").split(" ").join("-") ===
+          query.brand,
+      );
     }
 
     content = (
@@ -143,7 +153,10 @@ const ShopRightSidebarPage = ({ query }) => {
     <Wrapper>
       <SEO pageTitle="Shop" />
       <HeaderTwo style_2={true} />
-      <ShopBreadcrumb title="Shop Right Sidebar" subtitle="Shop Right Sidebar" />
+      <ShopBreadcrumb
+        title="Shop Right Sidebar"
+        subtitle="Shop Right Sidebar"
+      />
       {content}
       <Footer primary_style={true} />
     </Wrapper>

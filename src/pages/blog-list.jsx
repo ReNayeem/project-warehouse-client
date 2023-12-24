@@ -11,7 +11,7 @@ const BlogListPage = () => {
     <Wrapper>
       <SEO pageTitle="Blog List" />
       <HeaderTwo style_2={true} />
-      <SectionTitle/>
+      <SectionTitle />
       <BlogGridArea list_area={true} />
       <Footer primary_style={true} />
     </Wrapper>

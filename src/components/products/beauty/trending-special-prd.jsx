@@ -1,20 +1,20 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, EffectFade } from 'swiper';
-import Image from 'next/image';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, EffectFade } from "swiper";
+import Image from "next/image";
 // internal
-import special_thumb from '@assets/img/product/special/big/special-big-1.jpg';
-import { ArrowNextSm, ArrowPrevSm, PlusTwo } from '@/svg';
-import { useGetProductTypeQuery } from '@/redux/features/productApi';
-import ErrorMsg from '@/components/common/error-msg';
-import ProductItem from './product-item';
-import { HomeThreeTrendingPrdLoader } from '@/components/loader';
+import special_thumb from "@assets/img/product/special/big/special-big-1.jpg";
+import { ArrowNextSm, ArrowPrevSm, PlusTwo } from "@/svg";
+import { useGetProductTypeQuery } from "@/redux/features/productApi";
+import ErrorMsg from "@/components/common/error-msg";
+import ProductItem from "./product-item";
+import { HomeThreeTrendingPrdLoader } from "@/components/loader";
 
-// slider setting 
+// slider setting
 const sliderSetting = {
   slidesPerView: 1,
   spaceBetween: 0,
-  effect: 'fade',
+  effect: "fade",
   pagination: {
     el: ".tp-special-slider-dot",
     clickable: true,
@@ -22,19 +22,20 @@ const sliderSetting = {
   navigation: {
     nextEl: ".tp-special-slider-button-next",
     prevEl: ".tp-special-slider-button-prev",
-  }
-}
+  },
+};
 
 const TrendingSpecialPrd = () => {
-  const { data: products, isError, isLoading } =
-    useGetProductTypeQuery({ type: 'beauty', query: `new=true` });
+  const {
+    data: products,
+    isError,
+    isLoading,
+  } = useGetProductTypeQuery({ type: "beauty", query: `new=true` });
   // decide what to render
   let content = null;
 
   if (isLoading) {
-    content = (
-      <HomeThreeTrendingPrdLoader loading={isLoading}/>
-    );
+    content = <HomeThreeTrendingPrdLoader loading={isLoading} />;
   }
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
@@ -45,14 +46,18 @@ const TrendingSpecialPrd = () => {
   if (!isLoading && !isError && products?.data?.length > 0) {
     const product_items = products.data.slice(0, 7);
     content = (
-      <Swiper {...sliderSetting} modules={[Pagination,Navigation,EffectFade]} className="tp-special-slider-active swiper-container">
+      <Swiper
+        {...sliderSetting}
+        modules={[Pagination, Navigation, EffectFade]}
+        className="tp-special-slider-active swiper-container"
+      >
         {product_items.map((item) => (
           <SwiperSlide key={item._id} className="tp-special-item grey-bg-9">
             <ProductItem product={item} prdCenter={true} />
           </SwiperSlide>
         ))}
       </Swiper>
-    )
+    );
   }
   return (
     <>
@@ -68,7 +73,9 @@ const TrendingSpecialPrd = () => {
                       <PlusTwo />
                     </span>
                     <div className="tp-special-hotspot-content">
-                      <h3 className="tp-special-hotspot-title">Skincare Product</h3>
+                      <h3 className="tp-special-hotspot-title">
+                        Skincare Product
+                      </h3>
                       <p>Lorem ipsum dolor sit amet consectetur.</p>
                     </div>
                   </div>
@@ -77,18 +84,21 @@ const TrendingSpecialPrd = () => {
                       <PlusTwo />
                     </span>
                     <div className="tp-special-hotspot-content">
-                      <h3 className="tp-special-hotspot-title">Skincare Product</h3>
+                      <h3 className="tp-special-hotspot-title">
+                        Skincare Product
+                      </h3>
                       <p>Lorem ipsum dolor sit amet consectetur.</p>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
             <div className="col-xl-7 col-md-6">
               <div className="tp-special-wrapper grey-bg-9 pt-85 pb-35">
                 <div className="tp-section-title-wrapper-3 mb-40 text-center">
-                  <span className="tp-section-title-pre-3">Trending This Week’s</span>
+                  <span className="tp-section-title-pre-3">
+                    Trending This Week’s
+                  </span>
                   <h3 className="tp-section-title-3">Special products</h3>
                 </div>
                 <div className="tp-special-slider ">

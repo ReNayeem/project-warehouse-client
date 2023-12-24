@@ -14,24 +14,28 @@ const schema = Yup.object().shape({
 
 const ForgotForm = () => {
   const [resetPassword, {}] = useResetPasswordMutation();
-    // react hook form
-    const {register,handleSubmit,formState: { errors },reset} = useForm({
-      resolver: yupResolver(schema), 
+  // react hook form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  // onSubmit
+  const onSubmit = (data) => {
+    resetPassword({
+      verifyEmail: data.email,
+    }).then((result) => {
+      if (result?.error) {
+        notifyError(result?.error?.data?.message);
+      } else {
+        notifySuccess(result.data?.message);
+      }
     });
-    // onSubmit
-    const onSubmit = (data) => {
-      resetPassword({
-        verifyEmail: data.email,
-      }).then((result) => {
-        if(result?.error){
-          notifyError(result?.error?.data?.message)
-        }
-        else {
-          notifySuccess(result.data?.message);
-        }
-      });
-      reset();
-    };
+    reset();
+  };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="tp-login-input-wrapper">

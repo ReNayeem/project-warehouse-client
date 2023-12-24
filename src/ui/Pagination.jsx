@@ -22,7 +22,7 @@ const Pagination = ({
 
   useEffect(() => {
     paginatedData(items, pageStart, countOfPage);
-  }, [items, pageStart, countOfPage]);
+  }, [items, pageStart, countOfPage, paginatedData]);
 
   return (
     <nav>

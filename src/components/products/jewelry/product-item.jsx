@@ -9,7 +9,7 @@ import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 
 const ProductItem = ({ product }) => {
-  const { _id, img, title, price, tags,status } = product || {};
+  const { _id, img, title, price, tags, status } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
   const isAddedToCart = cart_products.some((prd) => prd._id === _id);
@@ -33,14 +33,18 @@ const ProductItem = ({ product }) => {
           <Image src={img} alt="product img" width={284} height={352} />
         </Link>
         <div className="tp-product-badge">
-          {status === 'out-of-stock' && <span className="product-hot">out-stock</span>}
+          {status === "out-of-stock" && (
+            <span className="product-hot">out-stock</span>
+          )}
         </div>
         <div className="tp-product-action-3 tp-product-action-4 has-shadow tp-product-action-blackStyle tp-product-action-brownStyle">
           <div className="tp-product-action-item-3 d-flex flex-column">
             {isAddedToCart ? (
               <Link
                 href="/cart"
-                className={`tp-product-action-btn-3 ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn text-center`}
+                className={`tp-product-action-btn-3 ${
+                  isAddedToCart ? "active" : ""
+                } tp-product-add-cart-btn text-center`}
               >
                 <Cart />
                 <span className="tp-product-tooltip">View Cart</span>
@@ -49,8 +53,10 @@ const ProductItem = ({ product }) => {
               <button
                 type="button"
                 onClick={() => handleAddProduct(product)}
-                className={`tp-product-action-btn-3 ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn`}
-                disabled={status === 'out-of-stock'}
+                className={`tp-product-action-btn-3 ${
+                  isAddedToCart ? "active" : ""
+                } tp-product-add-cart-btn`}
+                disabled={status === "out-of-stock"}
               >
                 <Cart />
                 <span className="tp-product-tooltip">Add to Cart</span>
@@ -67,8 +73,10 @@ const ProductItem = ({ product }) => {
             <button
               type="button"
               onClick={() => handleWishlistProduct(product)}
-              className={`tp-product-action-btn-3 ${isAddedToWishlist ? 'active' : ''} tp-product-add-to-wishlist-btn`}
-              disabled={status === 'out-of-stock'}
+              className={`tp-product-action-btn-3 ${
+                isAddedToWishlist ? "active" : ""
+              } tp-product-add-to-wishlist-btn`}
+              disabled={status === "out-of-stock"}
             >
               <Wishlist />
               <span className="tp-product-tooltip">Add To Wishlist</span>
@@ -89,11 +97,19 @@ const ProductItem = ({ product }) => {
             <span className="tp-product-price-4">${price.toFixed(2)}</span>
           </div>
           <div className="tp-product-price-add-to-cart">
-            {isAddedToCart ? <Link href="/cart" className="tp-product-add-to-cart-4">
-              <AddCart /> View Cart
-            </Link> : <button disabled={status === 'out-of-stock'} onClick={()=> handleAddProduct(product)} className="tp-product-add-to-cart-4">
-              <AddCart /> Add to Cart
-            </button>}
+            {isAddedToCart ? (
+              <Link href="/cart" className="tp-product-add-to-cart-4">
+                <AddCart /> View Cart
+              </Link>
+            ) : (
+              <button
+                disabled={status === "out-of-stock"}
+                onClick={() => handleAddProduct(product)}
+                className="tp-product-add-to-cart-4"
+              >
+                <AddCart /> Add to Cart
+              </button>
+            )}
           </div>
         </div>
       </div>

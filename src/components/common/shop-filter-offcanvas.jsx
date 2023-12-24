@@ -6,7 +6,10 @@ import PriceFilter from "../shop/shop-filter/price-filter";
 import ProductBrand from "../shop/shop-filter/product-brand";
 import StatusFilter from "../shop/shop-filter/status-filter";
 import TopRatedProducts from "../shop/shop-filter/top-rated-products";
-import { handleFilterSidebarClose, handleFilterSidebarOpen } from "@/redux/features/shop-filter-slice";
+import {
+  handleFilterSidebarClose,
+  handleFilterSidebarOpen,
+} from "@/redux/features/shop-filter-slice";
 import ResetButton from "../shop/shop-filter/reset-button";
 
 const ShopFilterOffCanvas = ({
@@ -37,8 +40,7 @@ const ShopFilterOffCanvas = ({
               onClick={() => dispatch(handleFilterSidebarOpen())}
               className="tp-filter-offcanvas-close-btn filter-close-btn"
             >
-              <i className="fa-solid fa-xmark"></i>
-              {" "}Close
+              <i className="fa-solid fa-xmark"></i> Close
             </button>
           </div>
           <div className="tp-shop-sidebar">

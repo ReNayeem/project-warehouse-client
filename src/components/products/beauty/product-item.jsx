@@ -8,8 +8,8 @@ import { handleProductModal } from "@/redux/features/productModalSlice";
 import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 
-const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
-  const { _id, img, title, discount, price, tags,status } = product || {};
+const ProductItem = ({ product, prdCenter = false, primary_style = false }) => {
+  const { _id, img, title, discount, price, tags, status } = product || {};
   const { cart_products } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
   const isAddedToCart = cart_products.some((prd) => prd._id === _id);
@@ -20,14 +20,16 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
   const handleAddProduct = (prd) => {
     dispatch(add_cart_product(prd));
   };
-   // handle wishlist product
-   const handleWishlistProduct = (prd) => {
+  // handle wishlist product
+  const handleWishlistProduct = (prd) => {
     dispatch(add_to_wishlist(prd));
   };
 
   return (
     <div
-      className={`tp-product-item-3 mb-50 ${primary_style?"tp-product-style-primary":""} ${prdCenter ? "text-center" : ""}`}
+      className={`tp-product-item-3 mb-50 ${
+        primary_style ? "tp-product-style-primary" : ""
+      } ${prdCenter ? "text-center" : ""}`}
     >
       <div className="tp-product-thumb-3 mb-15 fix p-relative z-index-1">
         <Link href={`/product-details/${_id}`}>
@@ -35,7 +37,9 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
         </Link>
 
         <div className="tp-product-badge">
-          {status === 'out-of-stock' && <span className="product-hot">out-stock</span>}
+          {status === "out-of-stock" && (
+            <span className="product-hot">out-stock</span>
+          )}
         </div>
 
         {/* product action */}
@@ -44,7 +48,9 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
             {isAddedToCart ? (
               <Link
                 href="/cart"
-                className={`tp-product-action-btn-3 ${isAddedToCart?'active':''} tp-product-add-cart-btn text-center`}
+                className={`tp-product-action-btn-3 ${
+                  isAddedToCart ? "active" : ""
+                } tp-product-add-cart-btn text-center`}
               >
                 <Cart />
                 <span className="tp-product-tooltip">View Cart</span>
@@ -53,8 +59,10 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
               <button
                 type="button"
                 onClick={() => handleAddProduct(product)}
-                className={`tp-product-action-btn-3 ${isAddedToCart?'active':''} tp-product-add-cart-btn`}
-                disabled={status === 'out-of-stock'}
+                className={`tp-product-action-btn-3 ${
+                  isAddedToCart ? "active" : ""
+                } tp-product-add-cart-btn`}
+                disabled={status === "out-of-stock"}
               >
                 <Cart />
                 <span className="tp-product-tooltip">Add to Cart</span>
@@ -68,12 +76,17 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
               <span className="tp-product-tooltip">Quick View</span>
             </button>
 
-            <button disabled={status === 'out-of-stock'} onClick={()=> handleWishlistProduct(product)} className={`tp-product-action-btn-3 
-            ${isAddedToWishlist?'active':''} tp-product-add-to-wishlist-btn`}>
+            <button
+              disabled={status === "out-of-stock"}
+              onClick={() => handleWishlistProduct(product)}
+              className={`tp-product-action-btn-3 
+            ${
+              isAddedToWishlist ? "active" : ""
+            } tp-product-add-to-wishlist-btn`}
+            >
               <Wishlist />
               <span className="tp-product-tooltip">Add To Wishlist</span>
             </button>
-
           </div>
         </div>
 
@@ -90,7 +103,7 @@ const ProductItem = ({ product, prdCenter = false,primary_style=false }) => {
               onClick={() => handleAddProduct(product)}
               type="button"
               className="tp-product-add-cart-btn-large"
-              disabled={status === 'out-of-stock'}
+              disabled={status === "out-of-stock"}
             >
               Add To Cart
             </button>

@@ -11,8 +11,8 @@ const BlogGridPage = () => {
     <Wrapper>
       <SEO pageTitle="Blog Grid" />
       <HeaderTwo style_2={true} />
-      <SectionTitle/>
-      <BlogGridArea/>
+      <SectionTitle />
+      <BlogGridArea />
       <Footer primary_style={true} />
     </Wrapper>
   );

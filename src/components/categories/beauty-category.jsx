@@ -20,14 +20,14 @@ const BeautyCategory = () => {
         .toLowerCase()
         .replace("&", "")
         .split(" ")
-        .join("-")}`
+        .join("-")}`,
     );
   };
   // decide what to render
   let content = null;
 
   if (isLoading) {
-    content = <HomeThreeCategoryLoader loading={isLoading}/>;
+    content = <HomeThreeCategoryLoader loading={isLoading} />;
   }
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;

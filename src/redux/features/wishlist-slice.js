@@ -17,7 +17,7 @@ export const wishlistSlice = createSlice({
         notifySuccess(`${payload.title} added to wishlist`);
       } else {
         state.wishlist = state.wishlist.filter(
-          (item) => item._id !== payload._id
+          (item) => item._id !== payload._id,
         );
         notifyError(`${payload.title} removed from wishlist`);
       }

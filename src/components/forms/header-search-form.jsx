@@ -5,7 +5,8 @@ import NiceSelect from "@/ui/nice-select";
 import useSearchFormSubmit from "@/hooks/use-search-form-submit";
 
 const HeaderSearchForm = () => {
-  const { setSearchText, setCategory, handleSubmit, searchText } = useSearchFormSubmit();
+  const { setSearchText, setCategory, handleSubmit, searchText } =
+    useSearchFormSubmit();
 
   // selectHandle
   const selectCategoryHandle = (e) => {

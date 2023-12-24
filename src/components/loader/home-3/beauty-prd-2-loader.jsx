@@ -7,12 +7,12 @@ function SingleLoader({ loading }) {
       className="col-xl-3 col-lg-3 col-sm-6 d-flex align-items-center"
       style={{ height: "300px" }}
     >
-      <Loader loading={loading} color="BD844C"  />
+      <Loader loading={loading} color="BD844C" />
     </div>
   );
 }
 
-const HomeThreePrdTwoLoader = ({loading}) => {
+const HomeThreePrdTwoLoader = ({ loading }) => {
   return (
     <div className="row">
       <SingleLoader loading={loading} />

@@ -49,16 +49,21 @@ export default function SearchPage({ query }) {
 
     if (searchText && !productType) {
       product_items = all_products.filter((prd) =>
-        prd.title?.toLowerCase().includes(searchText?.toLowerCase())
+        prd.title?.toLowerCase().includes(searchText?.toLowerCase()),
       );
     }
     if (searchText && productType) {
-      product_items = all_products.filter(
-        (prd) => prd.productType?.toLowerCase() === productType?.toLowerCase()
-      ).filter(p => p?.title?.toLowerCase().includes(searchText?.toLowerCase()));
+      product_items = all_products
+        .filter(
+          (prd) =>
+            prd.productType?.toLowerCase() === productType?.toLowerCase(),
+        )
+        .filter((p) =>
+          p?.title?.toLowerCase().includes(searchText?.toLowerCase()),
+        );
     }
-     // Price low to high
-     if (shortValue === "Price low to high") {
+    // Price low to high
+    if (shortValue === "Price low to high") {
       product_items = product_items
         .slice()
         .sort((a, b) => Number(a.price) - Number(b.price));
@@ -72,13 +77,14 @@ export default function SearchPage({ query }) {
     if (product_items.length === 0) {
       content = (
         <div className="text-center pt-80 pb-80">
-          <h3>Sorry, nothing matched <span style={{color:'#0989FF'}}>{searchText}</span> search terms</h3>
+          <h3>
+            Sorry, nothing matched{" "}
+            <span style={{ color: "#0989FF" }}>{searchText}</span> search terms
+          </h3>
         </div>
       );
-    }
-
-    else {
-      content = ( 
+    } else {
+      content = (
         <>
           <section className="tp-shop-area pb-120">
             <div className="container">
@@ -88,22 +94,32 @@ export default function SearchPage({ query }) {
                     <div className="tp-shop-top mb-45">
                       <div className="row">
                         <div className="col-xl-6">
-
                           <div className="tp-shop-top-left d-flex align-items-center ">
                             <div className="tp-shop-top-result">
-                              <p>Showing 1–{product_items.length} of {all_products.length} results</p>
+                              <p>
+                                Showing 1–{product_items.length} of{" "}
+                                {all_products.length} results
+                              </p>
                             </div>
                           </div>
-
                         </div>
                         <div className="col-xl-6">
                           <div className="tp-shop-top-right d-sm-flex align-items-center justify-content-xl-end">
                             <div className="tp-shop-top-select">
                               <NiceSelect
                                 options={[
-                                  { value: "Short By Price", text: "Short By Price" },
-                                  { value: "Price low to high", text: "Price low to high" },
-                                  { value: "Price high to low", text: "Price high to low" },
+                                  {
+                                    value: "Short By Price",
+                                    text: "Short By Price",
+                                  },
+                                  {
+                                    value: "Price low to high",
+                                    text: "Price low to high",
+                                  },
+                                  {
+                                    value: "Price high to low",
+                                    text: "Price high to low",
+                                  },
                                 ]}
                                 defaultCurrent={0}
                                 onChange={shortHandler}
@@ -111,30 +127,30 @@ export default function SearchPage({ query }) {
                               />
                             </div>
                           </div>
-
                         </div>
                       </div>
                     </div>
-                    
-                      <div className="tp-shop-items-wrapper tp-shop-item-primary">
-                        <div className="row">
-                          {product_items
-                            .slice(0, next)
-                            ?.map((item) => (
-                              <div
-                                key={item._id}
-                                className="col-xl-3 col-lg-4 col-md-6 col-sm-6"
-                              >
-                                <ProductItem product={item} />
-                              </div>
-                            ))}
-                        </div>
+
+                    <div className="tp-shop-items-wrapper tp-shop-item-primary">
+                      <div className="row">
+                        {product_items.slice(0, next)?.map((item) => (
+                          <div
+                            key={item._id}
+                            className="col-xl-3 col-lg-4 col-md-6 col-sm-6"
+                          >
+                            <ProductItem product={item} />
+                          </div>
+                        ))}
                       </div>
+                    </div>
 
                     {/* load more btn start */}
                     {next < product_items?.length && (
                       <div className="load-more-btn text-center pt-50">
-                        <button onClick={handleLoadMore} className="tp-btn tp-btn-2 tp-btn-blue">
+                        <button
+                          onClick={handleLoadMore}
+                          className="tp-btn tp-btn-2 tp-btn-blue"
+                        >
                           Load More
                         </button>
                       </div>

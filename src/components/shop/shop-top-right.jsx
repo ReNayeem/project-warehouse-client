@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 // internal
 import { Filter } from "@/svg";
 import NiceSelect from "@/ui/nice-select";
-import {handleFilterSidebarOpen } from "@/redux/features/shop-filter-slice";
+import { handleFilterSidebarOpen } from "@/redux/features/shop-filter-slice";
 
-const ShopTopRight = ({selectHandleFilter}) => {
-  const dispatch = useDispatch()
+const ShopTopRight = ({ selectHandleFilter }) => {
+  const dispatch = useDispatch();
   return (
     <div className="tp-shop-top-right d-sm-flex align-items-center justify-content-xl-end">
       <div className="tp-shop-top-select">
@@ -24,11 +24,15 @@ const ShopTopRight = ({selectHandleFilter}) => {
         />
       </div>
       <div className="tp-shop-top-filter">
-        <button onClick={()=> dispatch(handleFilterSidebarOpen())} type="button" className="tp-filter-btn">
+        <button
+          onClick={() => dispatch(handleFilterSidebarOpen())}
+          type="button"
+          className="tp-filter-btn"
+        >
           <span>
             <Filter />
-          </span>
-          {" "}Filter
+          </span>{" "}
+          Filter
         </button>
       </div>
     </div>

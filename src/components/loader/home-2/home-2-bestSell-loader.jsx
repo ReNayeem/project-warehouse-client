@@ -12,7 +12,7 @@ function SingleLoader({ loading }) {
   );
 }
 
-const HomeTwoBestSellPrdPrdLoader = ({loading}) => {
+const HomeTwoBestSellPrdPrdLoader = ({ loading }) => {
   return (
     <>
       <SingleLoader loading={loading} />

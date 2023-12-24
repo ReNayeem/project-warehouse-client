@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductBadge = ({badge}) => {
+const ProductBadge = ({ badge }) => {
   return (
     <div className="tp-product-badge">
       <span className={`product-${badge}`}>{badge}</span>

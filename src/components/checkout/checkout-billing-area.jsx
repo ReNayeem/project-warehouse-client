@@ -1,9 +1,11 @@
 import React from "react";
 import ErrorMsg from "../common/error-msg";
 import { useSelector } from "react-redux";
+import { useSession } from "@clerk/nextjs";
 
 const CheckoutBillingArea = ({ register, errors }) => {
   const { user } = useSelector((state) => state.auth);
+  const session = useSession();
 
   return (
     <div className="tp-checkout-bill-area">
@@ -25,7 +27,7 @@ const CheckoutBillingArea = ({ register, errors }) => {
                   id="firstName"
                   type="text"
                   placeholder="First Name"
-                  defaultValue={user?.firstName}
+                  defaultValue={session?.session.user.firstName}
                 />
                 <ErrorMsg msg={errors?.firstName?.message} />
               </div>
@@ -43,6 +45,7 @@ const CheckoutBillingArea = ({ register, errors }) => {
                   id="lastName"
                   type="text"
                   placeholder="Last Name"
+                  defaultValue={session?.session.user.lastName}
                 />
                 <ErrorMsg msg={errors?.lastName?.message} />
               </div>
@@ -57,7 +60,7 @@ const CheckoutBillingArea = ({ register, errors }) => {
                   name="country"
                   id="country"
                   type="text"
-                  placeholder="United States (US)"
+                  placeholder="Bangladesh"
                 />
                 <ErrorMsg msg={errors?.lastName?.message} />
               </div>
@@ -85,7 +88,7 @@ const CheckoutBillingArea = ({ register, errors }) => {
                   type="text"
                   placeholder="City"
                 />
-                 <ErrorMsg msg={errors?.city?.message} />
+                <ErrorMsg msg={errors?.city?.message} />
               </div>
             </div>
             <div className="col-md-6">

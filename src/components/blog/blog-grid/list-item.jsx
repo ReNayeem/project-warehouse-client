@@ -4,13 +4,13 @@ import Link from "next/link";
 // internal
 import { ArrowRightLong, Comment, Date } from "@/svg";
 
-const ListItem = ({blog}) => {
-  const {id,list_img,date,comments,author,title,desc} = blog || {};
+const ListItem = ({ blog }) => {
+  const { id, list_img, date, comments, author, title, desc } = blog || {};
   return (
     <div className="tp-blog-list-item d-md-flex d-lg-block d-xl-flex">
       <div className="tp-blog-list-thumb">
         <Link href={`/blog-details/${id}`}>
-          <Image src={list_img} alt="blog img"/>
+          <Image src={list_img} alt="blog img" />
         </Link>
       </div>
       <div className="tp-blog-list-content">
@@ -18,15 +18,15 @@ const ListItem = ({blog}) => {
           <div className="tp-blog-grid-meta">
             <span>
               <span>
-                <Date/>
-              </span>
-             {" "}{date}
+                <Date />
+              </span>{" "}
+              {date}
             </span>
             <span>
               <span>
-                <Comment/>
-              </span>
-              {" "}Comments ({comments})
+                <Comment />
+              </span>{" "}
+              Comments ({comments})
             </span>
           </div>
           <h3 className="tp-blog-grid-title">
@@ -38,7 +38,7 @@ const ListItem = ({blog}) => {
             <Link href={`/blog-details/${id}`} className="tp-link-btn-3">
               Read More{" "}
               <span>
-                <ArrowRightLong/>
+                <ArrowRightLong />
               </span>
             </Link>
           </div>

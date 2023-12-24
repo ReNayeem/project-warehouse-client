@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const SectionTitle = () => {
   return (
@@ -9,7 +9,9 @@ const SectionTitle = () => {
             <div className="col-xl-8">
               <div className="tp-section-title-wrapper-7">
                 <span className="tp-section-title-pre-7">Blog Standard</span>
-                <h3 className="tp-section-title-7">Insight and advice <br /> From our Expert team.</h3>
+                <h3 className="tp-section-title-7">
+                  Insight and advice <br /> From our Expert team.
+                </h3>
               </div>
             </div>
           </div>

@@ -5,7 +5,6 @@ import { ArrowRight } from "@/svg";
 import banner_1 from "@assets/img/product/banner/product-banner-1.jpg";
 import banner_2 from "@assets/img/product/banner/product-banner-2.jpg";
 
-
 // banner item
 function BannerItem({ sm = false, bg, title }) {
   return (

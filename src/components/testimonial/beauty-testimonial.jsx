@@ -1,14 +1,14 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper';
-import Image from 'next/image';
-import { Rating } from 'react-simple-star-rating';
-import dynamic from 'next/dynamic';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
+import Image from "next/image";
+import { Rating } from "react-simple-star-rating";
+import dynamic from "next/dynamic";
 // internal
-import { beauty_testi_data } from '@/data/testimonial-data';
-import quote from '@assets/img/testimonial/testimonial-quote.png';
+import { beauty_testi_data } from "@/data/testimonial-data";
+import quote from "@assets/img/testimonial/testimonial-quote.png";
 
-// slider setting 
+// slider setting
 const slider_setting = {
   slidesPerView: 2,
   spaceBetween: 24,
@@ -21,17 +21,17 @@ const slider_setting = {
     prevEl: ".tp-testimoinal-slider-button-prev-3",
   },
   breakpoints: {
-    '992': {
+    992: {
       slidesPerView: 2,
     },
-    '576': {
+    576: {
       slidesPerView: 1,
     },
-    '0': {
+    0: {
       slidesPerView: 1,
     },
-  }
-}
+  },
+};
 
 const BeautyTestimonial = () => {
   return (
@@ -49,14 +49,31 @@ const BeautyTestimonial = () => {
           <div className="row">
             <div className="col-xl-12">
               <div className="tp-testimonial-slider-3">
-                <Swiper {...slider_setting} modules={[Pagination, Navigation]} className="tp-testimoinal-slider-active-3 swiper-container">
+                <Swiper
+                  {...slider_setting}
+                  modules={[Pagination, Navigation]}
+                  className="tp-testimoinal-slider-active-3 swiper-container"
+                >
                   {beauty_testi_data.map((item) => (
-                    <SwiperSlide key={item.id} className="tp-testimonial-item-3 grey-bg-7 p-relative z-index-1">
+                    <SwiperSlide
+                      key={item.id}
+                      className="tp-testimonial-item-3 grey-bg-7 p-relative z-index-1"
+                    >
                       <div className="tp-testimonial-shape-3">
-                        <Image className="tp-testimonial-shape-3-quote" src={quote} alt="quote img" />
+                        <Image
+                          className="tp-testimonial-shape-3-quote"
+                          src={quote}
+                          alt="quote img"
+                        />
                       </div>
                       <div className="tp-testimonial-rating tp-testimonial-rating-3">
-                        <Rating fillColor='#010F1C' readonly={true} allowFraction size={20} initialValue={item.review} />
+                        <Rating
+                          fillColor="#010F1C"
+                          readonly={true}
+                          allowFraction
+                          size={20}
+                          initialValue={item.review}
+                        />
                       </div>
                       <div className="tp-testimonial-content-3">
                         <p>{item.desc}</p>
@@ -67,8 +84,12 @@ const BeautyTestimonial = () => {
                             <Image src={item.user} alt="user img" />
                           </div>
                           <div className="tp-testimonial-user-3-info tp-testimonial-user-translate">
-                            <h3 className="tp-testimonial-user-3-title">{item.name} /</h3>
-                            <span className="tp-testimonial-3-designation">{item.designation}</span>
+                            <h3 className="tp-testimonial-user-3-title">
+                              {item.name} /
+                            </h3>
+                            <span className="tp-testimonial-3-designation">
+                              {item.designation}
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -85,4 +106,6 @@ const BeautyTestimonial = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(BeautyTestimonial), { ssr: false });
+export default dynamic(() => Promise.resolve(BeautyTestimonial), {
+  ssr: false,
+});

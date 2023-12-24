@@ -34,20 +34,11 @@ const ProfileNavTab = () => {
           title="Profile"
           icon="fa-regular fa-user-pen"
         />
-        <SingleNav
-          id="information"
-          title="Information"
-          icon="fa-regular fa-circle-info"
-        />
+
         <SingleNav
           id="order"
           title="My Orders"
           icon="fa-light fa-clipboard-list-check"
-        />
-        <SingleNav
-          id="password"
-          title="Change Password"
-          icon="fa-regular fa-lock"
         />
       </div>
     </nav>

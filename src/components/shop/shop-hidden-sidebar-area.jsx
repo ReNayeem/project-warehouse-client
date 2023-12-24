@@ -5,12 +5,8 @@ import ShopListItem from "./shop-list-item";
 import ShopTopLeft from "./shop-top-left";
 import ShopTopRight from "./shop-top-right";
 
-const ShopHiddenSidebarArea = ({
-  all_products,
-  products,
-  otherProps,
-}) => {
-  const { currPage, setCurrPage,selectHandleFilter } = otherProps;
+const ShopHiddenSidebarArea = ({ all_products, products, otherProps }) => {
+  const { currPage, setCurrPage, selectHandleFilter } = otherProps;
   const [filteredRows, setFilteredRows] = useState(products);
   const [pageStart, setPageStart] = useState(0);
   const [countOfPage, setCountOfPage] = useState(12);
@@ -27,7 +23,7 @@ const ShopHiddenSidebarArea = ({
         <div className="container">
           <div className="row">
             <div className="col-xl-12 col-lg-12">
-            <div className="tp-shop-main-wrapper">
+              <div className="tp-shop-main-wrapper">
                 <div className="tp-shop-top mb-45">
                   <div className="row">
                     <div className="col-xl-6">
@@ -37,7 +33,7 @@ const ShopHiddenSidebarArea = ({
                             ? 0
                             : filteredRows.slice(
                                 pageStart,
-                                pageStart + countOfPage
+                                pageStart + countOfPage,
                               ).length
                         }
                         total={all_products.length}

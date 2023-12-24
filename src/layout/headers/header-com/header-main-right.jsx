@@ -6,50 +6,18 @@ import Image from "next/image";
 import useCartInfo from "@/hooks/use-cart-info";
 import { CartTwo, Compare, Menu, User, Wishlist } from "@/svg";
 import { openCartMini } from "@/redux/features/cartSlice";
+import { SignInButton } from "@clerk/nextjs";
+import HeaderUserAuth from "./header-user-auth";
 
 const HeaderMainRight = ({ setIsCanvasOpen }) => {
-  const { user: userInfo } = useSelector((state) => state.auth);
   const { wishlist } = useSelector((state) => state.wishlist);
   const { quantity } = useCartInfo();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   return (
     <div className="tp-header-main-right d-flex align-items-center justify-content-end">
       <div className="tp-header-login d-none d-lg-block">
         <div className="d-flex align-items-center">
-          <div className="tp-header-login-icon">
-            <span>
-              {userInfo?.imageURL ? (
-                <Link href="/profile">
-                  <Image
-                    src={userInfo.imageURL}
-                    alt="user img"
-                    width={35}
-                    height={35}
-                  />
-                </Link>
-              ) : userInfo?.name ? (
-                <Link href="/profile">
-                  <h2 className="text-uppercase login_text">
-                    {userInfo?.name[0]}
-                  </h2>
-                </Link>
-              ) : (
-                <User />
-              )}
-            </span>
-          </div>
-          <div className="tp-header-login-content d-none d-xl-block">
-            {!userInfo?.name && (
-              <Link href="/login">
-                <span>Hello,</span>
-              </Link>
-            )}
-            {userInfo?.name && <span>Hello, {userInfo?.name}</span>}
-            <div className="tp-header-login-title">
-              {!userInfo?.name && <Link href="/login">Sign In</Link>}
-              {userInfo?.name && <Link href="/profile">Your Account</Link>}
-            </div>
-          </div>
+          <HeaderUserAuth />
         </div>
       </div>
       <div className="tp-header-action d-flex align-items-center ml-50">

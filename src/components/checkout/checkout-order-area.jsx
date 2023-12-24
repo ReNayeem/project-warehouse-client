@@ -17,7 +17,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
     showCard,
     setShowCard,
     shippingCost,
-    discountAmount
+    discountAmount,
   } = checkoutData;
   const { cart_products } = useSelector((state) => state.cart);
   const { total } = useCartInfo();
@@ -84,20 +84,20 @@ const CheckoutOrderArea = ({ checkoutData }) => {
             </div>
           </li>
 
-           {/*  subtotal */}
-           <li className="tp-order-info-list-subtotal">
+          {/*  subtotal */}
+          <li className="tp-order-info-list-subtotal">
             <span>Subtotal</span>
             <span>${total.toFixed(2)}</span>
           </li>
 
-           {/*  shipping cost */}
-           <li className="tp-order-info-list-subtotal">
+          {/*  shipping cost */}
+          <li className="tp-order-info-list-subtotal">
             <span>Shipping Cost</span>
             <span>${shippingCost.toFixed(2)}</span>
           </li>
 
-           {/* discount */}
-           <li className="tp-order-info-list-subtotal">
+          {/* discount */}
+          <li className="tp-order-info-list-subtotal">
             <span>Discount</span>
             <span>${discountAmount.toFixed(2)}</span>
           </li>
@@ -120,7 +120,11 @@ const CheckoutOrderArea = ({ checkoutData }) => {
             name="payment"
             value="Card"
           />
-          <label onClick={() => setShowCard(true)} htmlFor="back_transfer" data-bs-toggle="direct-bank-transfer">
+          <label
+            onClick={() => setShowCard(true)}
+            htmlFor="back_transfer"
+            data-bs-toggle="direct-bank-transfer"
+          >
             Credit Card
           </label>
           {showCard && (

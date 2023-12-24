@@ -5,7 +5,6 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import Image from "next/image";
 import dayjs from "dayjs";
 
-
 const OfferCouponItem = ({ coupon, handleCopied, copiedCode, copied }) => {
   return (
     <div className="tp-coupon-item mb-30 p-relative d-md-flex justify-content-between align-items-center">

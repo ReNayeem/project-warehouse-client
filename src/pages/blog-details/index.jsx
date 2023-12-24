@@ -18,5 +18,3 @@ const BlogDetailsPage = () => {
 };
 
 export default BlogDetailsPage;
-
-

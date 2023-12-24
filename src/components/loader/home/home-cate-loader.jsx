@@ -3,7 +3,10 @@ import Loader from "../loader";
 
 function SingleLoader({ loading }) {
   return (
-    <div className="col d-flex align-items-center justify-content-center" style={{ height: "200px" }}>
+    <div
+      className="col d-flex align-items-center justify-content-center"
+      style={{ height: "200px" }}
+    >
       <Loader loading={loading} />
     </div>
   );

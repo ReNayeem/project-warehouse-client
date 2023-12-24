@@ -4,17 +4,16 @@ import useCartInfo from "@/hooks/use-cart-info";
 import { useState } from "react";
 
 const CartCheckout = () => {
-  const {total} = useCartInfo();
-  const [shipCost,setShipCost] = useState(0);
-  // handle shipping cost 
+  const { total } = useCartInfo();
+  const [shipCost, setShipCost] = useState(0);
+  // handle shipping cost
   const handleShippingCost = (value) => {
-    if(value === 'free'){
-      setShipCost(0)
+    if (value === "free") {
+      setShipCost(0);
+    } else {
+      setShipCost(value);
     }
-    else {
-      setShipCost(value)
-    }
-  }
+  };
   return (
     <div className="tp-cart-checkout-wrapper">
       <div className="tp-cart-checkout-top d-flex align-items-center justify-content-between">
@@ -26,19 +25,27 @@ const CartCheckout = () => {
         <div className="tp-cart-checkout-shipping-option-wrapper">
           <div className="tp-cart-checkout-shipping-option">
             <input id="flat_rate" type="radio" name="shipping" />
-            <label htmlFor="flat_rate" onClick={()=> handleShippingCost(20)}>
+            <label htmlFor="flat_rate" onClick={() => handleShippingCost(20)}>
               Flat rate: <span>$20.00</span>
             </label>
           </div>
           <div className="tp-cart-checkout-shipping-option">
             <input id="local_pickup" type="radio" name="shipping" />
-            <label htmlFor="local_pickup" onClick={()=> handleShippingCost(25)}>
+            <label
+              htmlFor="local_pickup"
+              onClick={() => handleShippingCost(25)}
+            >
               Local pickup: <span> $25.00</span>
             </label>
           </div>
           <div className="tp-cart-checkout-shipping-option">
             <input id="free_shipping" type="radio" name="shipping" />
-            <label onClick={()=> handleShippingCost('free')} htmlFor="free_shipping">Free shipping</label>
+            <label
+              onClick={() => handleShippingCost("free")}
+              htmlFor="free_shipping"
+            >
+              Free shipping
+            </label>
           </div>
         </div>
       </div>

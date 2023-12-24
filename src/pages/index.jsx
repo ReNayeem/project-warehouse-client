@@ -19,22 +19,22 @@ import Footer from "@/layout/footers/footer";
 export default function Home() {
   return (
     <Wrapper>
-      <SEO pageTitle='Home'/>
-      <Header/>
-      <HomeHeroSlider/>
-      <ElectronicCategory/>
-      <FeatureArea/>
-      <ProductArea/>
-      <BannerArea/>
-      <OfferProducts/>
-      <ProductGadgetArea/>
-      <ProductBanner/>
-       <NewArrivals/>
-      <ProductSmArea/>
-      <BlogArea/>
-      <InstagramArea/>
-      <CtaArea/>
-      <Footer/>
+      <SEO pageTitle="Home" />
+      <Header />
+      <HomeHeroSlider />
+      <ElectronicCategory />
+      <FeatureArea />
+      <ProductArea />
+      <BannerArea />
+      <OfferProducts />
+      <ProductGadgetArea />
+      <ProductBanner />
+      <NewArrivals />
+      <ProductSmArea />
+      <BlogArea />
+      <InstagramArea />
+      <CtaArea />
+      <Footer />
     </Wrapper>
-  )
+  );
 }

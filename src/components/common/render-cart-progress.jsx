@@ -10,7 +10,7 @@ const RenderCartProgress = () => {
     return (
       <>
         <p>{`Add $${remainingAmount.toFixed(
-          2
+          2,
         )} more to qualify for free shipping`}</p>
         <div className="progress">
           <div

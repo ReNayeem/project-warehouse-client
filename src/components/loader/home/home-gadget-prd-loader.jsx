@@ -12,7 +12,7 @@ function SingleLoader({ loading }) {
   );
 }
 
-const HomeGadgetPrdLoader = ({loading}) => {
+const HomeGadgetPrdLoader = ({ loading }) => {
   return (
     <>
       <SingleLoader loading={loading} />

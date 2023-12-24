@@ -4,7 +4,6 @@ import ErrorMsg from "../common/error-msg";
 import OfferCouponItem from "./OfferCouponItem";
 import { useGetOfferCouponsQuery } from "@/redux/features/coupon/couponApi";
 
-
 const OfferCouponArea = () => {
   const [copiedCode, setCopiedCode] = useState("");
   const [copied, setCopied] = useState(false);

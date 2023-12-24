@@ -12,12 +12,7 @@ import ShopTopLeft from "./shop-top-left";
 import ShopTopRight from "./shop-top-right";
 import ResetButton from "./shop-filter/reset-button";
 
-const ShopRightArea = ({
-  all_products,
-  products,
-  otherProps,
-  right_side
-}) => {
+const ShopRightArea = ({ all_products, products, otherProps, right_side }) => {
   const { priceFilterValues, selectHandleFilter, currPage, setCurrPage } =
     otherProps;
   const [filteredRows, setFilteredRows] = useState(products);
@@ -43,16 +38,20 @@ const ShopRightArea = ({
               <div className="tp-shop-main-wrapper">
                 <div className="tp-shop-top mb-45">
                   <div className="row">
-                      <div className="col-xl-6">
-                        <ShopTopLeft
-                          showing={
-                            products.length === 0? 0: filteredRows.slice(pageStart,pageStart + countOfPage)
-                            .length
-                          }
-                          total={all_products.length}
-                        />
-                      </div>
-                     <div className="col-xl-6">
+                    <div className="col-xl-6">
+                      <ShopTopLeft
+                        showing={
+                          products.length === 0
+                            ? 0
+                            : filteredRows.slice(
+                                pageStart,
+                                pageStart + countOfPage,
+                              ).length
+                        }
+                        total={all_products.length}
+                      />
+                    </div>
+                    <div className="col-xl-6">
                       <ShopTopRight selectHandleFilter={selectHandleFilter} />
                     </div>
                   </div>
@@ -119,28 +118,39 @@ const ShopRightArea = ({
               </div>
             </div>
 
-              <div className="col-xl-3 col-lg-4">
-                <div className="tp-shop-sidebar mr-10">
-                  {/* filter */}
-                  <PriceFilter
-                    priceFilterValues={priceFilterValues}
-                    maxPrice={maxPrice}
-                  />
-                  {/* status */}
-                  <StatusFilter setCurrPage={setCurrPage} shop_right={right_side} />
-                  {/* categories */}
-                  <CategoryFilter setCurrPage={setCurrPage} shop_right={right_side} />
-                  {/* color */}
-                  <ColorFilter setCurrPage={setCurrPage} shop_right={right_side} />
-                  {/* product rating */}
-                  <TopRatedProducts />
-                  {/* brand */}
-                  <ProductBrand setCurrPage={setCurrPage} shop_right={right_side} />
-                  {/* reset filter */}
-                  <ResetButton shop_right={right_side} />
-                </div>
+            <div className="col-xl-3 col-lg-4">
+              <div className="tp-shop-sidebar mr-10">
+                {/* filter */}
+                <PriceFilter
+                  priceFilterValues={priceFilterValues}
+                  maxPrice={maxPrice}
+                />
+                {/* status */}
+                <StatusFilter
+                  setCurrPage={setCurrPage}
+                  shop_right={right_side}
+                />
+                {/* categories */}
+                <CategoryFilter
+                  setCurrPage={setCurrPage}
+                  shop_right={right_side}
+                />
+                {/* color */}
+                <ColorFilter
+                  setCurrPage={setCurrPage}
+                  shop_right={right_side}
+                />
+                {/* product rating */}
+                <TopRatedProducts />
+                {/* brand */}
+                <ProductBrand
+                  setCurrPage={setCurrPage}
+                  shop_right={right_side}
+                />
+                {/* reset filter */}
+                <ResetButton shop_right={right_side} />
               </div>
-
+            </div>
           </div>
         </div>
       </section>
