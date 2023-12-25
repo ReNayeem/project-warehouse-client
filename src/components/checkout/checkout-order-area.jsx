@@ -197,7 +197,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
             <p>4. Enter total tk as the amount.</p>
             <p>5. Note the Transaction ID.</p>
             <p>6. Drop your transaction ID and bKash number here.</p>
-            <input required type="number" placeholder="bKash Number" className="input-payment-1" />
+            <input required type="text" placeholder="bKash Number" className="input-payment-1" />
             <input required type="text" placeholder="bKash Transaction ID" />
           </div>}
         {selectedOption === "nagad" && <div>
@@ -207,7 +207,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
             <p>4. Enter total tk as the amount.</p>
             <p>5. Note the Transaction ID.</p>
             <p>6. Drop your transaction ID and Nagad number here.</p>
-            <input required type="number" placeholder="Nagad Number" className="input-payment-1" />
+            <input required type="text" placeholder="Nagad Number" className="input-payment-1" />
             <input required type="text" placeholder="Nagad Transaction ID" />
           </div>}
         {selectedOption === "rocket" && <div>
@@ -217,7 +217,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
             <p>4. Enter total tk as the amount.</p>
             <p>5. Note the Transaction ID.</p>
             <p>6. Drop your transaction ID and Rocket number here.</p>
-            <input required type="number" placeholder="Rocket Number" className="input-payment-1" />
+            <input required type="text" placeholder="Rocket Number" className="input-payment-1" />
             <input required type="text" placeholder="Rocket Transaction ID" />
           </div>}
       </div>
