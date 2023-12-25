@@ -21,6 +21,13 @@ const CheckoutOrderArea = ({ checkoutData }) => {
   } = checkoutData;
   const { cart_products } = useSelector((state) => state.cart);
   const { total } = useCartInfo();
+
+  const [selectedOption, setSelectedOption] = useState("bkash");
+
+  const handleButtonClick = (option) => {
+    setSelectedOption(option);
+  };
+
   return (
     <div className="tp-checkout-place white-bg">
       <h3 className="tp-checkout-place-title">Your Order</h3>
@@ -109,7 +116,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
           </li>
         </ul>
       </div>
-      <div className="tp-checkout-payment">
+      {/* <div className="tp-checkout-payment">
         <div className="tp-checkout-payment-item">
           <input
             {...register(`payment`, {
@@ -165,6 +172,55 @@ const CheckoutOrderArea = ({ checkoutData }) => {
           <label htmlFor="cod">Cash on Delivery</label>
           <ErrorMsg msg={errors?.payment?.message} />
         </div>
+      </div> */}
+
+      <div>
+      <h1>Select an Option</h1>
+      
+      <div className="payment-options">
+        <button onClick={() => handleButtonClick("bkash")} className={selectedOption === "bkash" ? "selected" : "unselected"}>
+          bKash
+        </button>
+        <button onClick={() => handleButtonClick("nagad")} className={selectedOption === "nagad" ? "selected" : "unselected"}>
+          Nagad
+        </button>
+        <button onClick={() => handleButtonClick("rocket")} className={selectedOption === "rocket" ? "selected" : "unselected"}>
+          Rocket
+        </button>
+      </div>
+      
+      <div className="result">
+        {selectedOption === "bkash" && <div>
+            <p>1. Open the bKash app or dial *247#.</p>
+            <p>2. Choose send money.</p>
+            <p>3. Enter 0000000000.</p>
+            <p>4. Enter total tk as the amount.</p>
+            <p>5. Note the Transaction ID.</p>
+            <p>6. Drop your transaction ID and bKash number here.</p>
+            <input required type="number" placeholder="bKash Number" className="input-payment-1" />
+            <input required type="text" placeholder="bKash Transaction ID" />
+          </div>}
+        {selectedOption === "nagad" && <div>
+            <p>1. Open the Nagad app or dial *167#.</p>
+            <p>2. Choose send money.</p>
+            <p>3. Enter 0000000000.</p>
+            <p>4. Enter total tk as the amount.</p>
+            <p>5. Note the Transaction ID.</p>
+            <p>6. Drop your transaction ID and Nagad number here.</p>
+            <input required type="number" placeholder="Nagad Number" className="input-payment-1" />
+            <input required type="text" placeholder="Nagad Transaction ID" />
+          </div>}
+        {selectedOption === "rocket" && <div>
+            <p>1. Open the Rocket app or dial *322#.</p>
+            <p>2. Choose send money.</p>
+            <p>3. Enter 0000000000.</p>
+            <p>4. Enter total tk as the amount.</p>
+            <p>5. Note the Transaction ID.</p>
+            <p>6. Drop your transaction ID and Rocket number here.</p>
+            <input required type="number" placeholder="Rocket Number" className="input-payment-1" />
+            <input required type="text" placeholder="Rocket Transaction ID" />
+          </div>}
+      </div>
       </div>
 
       <div className="tp-checkout-btn-wrapper">
