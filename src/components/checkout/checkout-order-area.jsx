@@ -194,7 +194,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
             <p>1. Open the bKash app or dial *247#.</p>
             <p>2. Choose send money.</p>
             <p>3. Enter 0000000000.</p>
-            <p>4. Enter total tk as the amount.</p>
+            <p>4. Enter {parseFloat(cartTotal).toFixed(2)} tk as the amount.</p>
             <p>5. Note the Transaction ID.</p>
             <p>6. Drop your transaction ID and bKash number here.</p>
             <input required type="text" placeholder="bKash Number" className="input-payment-1" />
@@ -204,7 +204,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
             <p>1. Open the Nagad app or dial *167#.</p>
             <p>2. Choose send money.</p>
             <p>3. Enter 0000000000.</p>
-            <p>4. Enter total tk as the amount.</p>
+            <p>4. Enter {parseFloat(cartTotal).toFixed(2)} tk as the amount.</p>
             <p>5. Note the Transaction ID.</p>
             <p>6. Drop your transaction ID and Nagad number here.</p>
             <input required type="text" placeholder="Nagad Number" className="input-payment-1" />
@@ -214,7 +214,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
             <p>1. Open the Rocket app or dial *322#.</p>
             <p>2. Choose send money.</p>
             <p>3. Enter 0000000000.</p>
-            <p>4. Enter total tk as the amount.</p>
+            <p>4. Enter {parseFloat(cartTotal).toFixed(2)} tk as the amount.</p>
             <p>5. Note the Transaction ID.</p>
             <p>6. Drop your transaction ID and Rocket number here.</p>
             <input required type="text" placeholder="Rocket Number" className="input-payment-1" />
