@@ -13,7 +13,7 @@ import ProductSmArea from "@/components/products/electronics/product-sm-area";
 import NewArrivals from "@/components/products/electronics/new-arrivals";
 import BlogArea from "@/components/blog/electronic/blog-area";
 import InstagramArea from "@/components/instagram/instagram-area";
-import CtaArea from "@/components/cta/cta-area";
+// import CtaArea from "@/components/cta/cta-area";
 import Footer from "@/layout/footers/footer";
 
 export default function Home() {
@@ -33,7 +33,7 @@ export default function Home() {
       <ProductSmArea />
       <BlogArea />
       <InstagramArea />
-      <CtaArea />
+      {/* <CtaArea /> */}
       <Footer />
     </Wrapper>
   );
