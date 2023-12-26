@@ -27,7 +27,7 @@ export const wishlistSlice = createSlice({
       state.wishlist = state.wishlist.filter((item) => item._id !== payload.id);
       notifyError(`${payload.title} removed from wishlist`);
       setLocalStorage("wishlist_items", state.wishlist);
-      notifyError(`${payload.title} removed from wishlist`);
+      // notifyError(`${payload.title} removed from wishlist`);
     },
     get_wishlist_products: (state, { payload }) => {
       state.wishlist = getLocalStorage("wishlist_items");
