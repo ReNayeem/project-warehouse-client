@@ -118,7 +118,7 @@ const ProductItem = ({ product, prdCenter = false, primary_style = false }) => {
           <Link href={`/product-details/${_id}`}>{title}</Link>
         </h3>
         <div className="tp-product-price-wrapper-3">
-          <span className="tp-product-price-3">${price.toFixed(2)}</span>
+          <span className="tp-product-price-3">৳{price.toFixed(2)}</span>
         </div>
       </div>
     </div>

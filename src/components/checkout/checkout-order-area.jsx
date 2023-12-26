@@ -46,7 +46,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
               <p>
                 {item.title} <span> x {item.orderQuantity}</span>
               </p>
-              <span>${item.price.toFixed(2)}</span>
+              <span>৳{item.price.toFixed(2)}</span>
             </li>
           ))}
 
@@ -67,7 +67,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
                   onClick={() => handleShippingCost(60)}
                   htmlFor="flat_shipping"
                 >
-                  Delivery: Today Cost :<span>$60.00</span>
+                  Delivery: Inside Dhaka City :<span>৳60.00</span>
                 </label>
                 <ErrorMsg msg={errors?.shippingOption?.message} />
               </span>
@@ -84,7 +84,7 @@ const CheckoutOrderArea = ({ checkoutData }) => {
                   onClick={() => handleShippingCost(20)}
                   htmlFor="flat_rate"
                 >
-                  Delivery: 7 Days Cost: <span>$20.00</span>
+                  Delivery: Outside Dhaka City: <span>৳120.00</span>
                 </label>
                 <ErrorMsg msg={errors?.shippingOption?.message} />
               </span>
@@ -94,25 +94,25 @@ const CheckoutOrderArea = ({ checkoutData }) => {
           {/*  subtotal */}
           <li className="tp-order-info-list-subtotal">
             <span>Subtotal</span>
-            <span>${total.toFixed(2)}</span>
+            <span>৳{total.toFixed(2)}</span>
           </li>
 
           {/*  shipping cost */}
           <li className="tp-order-info-list-subtotal">
             <span>Shipping Cost</span>
-            <span>${shippingCost.toFixed(2)}</span>
+            <span>৳{shippingCost.toFixed(2)}</span>
           </li>
 
           {/* discount */}
           <li className="tp-order-info-list-subtotal">
             <span>Discount</span>
-            <span>${discountAmount.toFixed(2)}</span>
+            <span>৳{discountAmount.toFixed(2)}</span>
           </li>
 
           {/* total */}
           <li className="tp-order-info-list-total">
             <span>Total</span>
-            <span>${parseFloat(cartTotal).toFixed(2)}</span>
+            <span>৳{parseFloat(cartTotal).toFixed(2)}</span>
           </li>
         </ul>
       </div>
@@ -194,30 +194,30 @@ const CheckoutOrderArea = ({ checkoutData }) => {
             <p>1. Open the bKash app or dial *247#.</p>
             <p>2. Choose send money.</p>
             <p>3. Enter 0000000000.</p>
-            <p>4. Enter total tk as the amount.</p>
+            <p>4. Enter {parseFloat(cartTotal).toFixed(2)} tk as the amount.</p>
             <p>5. Note the Transaction ID.</p>
             <p>6. Drop your transaction ID and bKash number here.</p>
-            <input required type="number" placeholder="bKash Number" className="input-payment-1" />
+            <input required type="text" placeholder="bKash Number" className="input-payment-1" />
             <input required type="text" placeholder="bKash Transaction ID" />
           </div>}
         {selectedOption === "nagad" && <div>
             <p>1. Open the Nagad app or dial *167#.</p>
             <p>2. Choose send money.</p>
             <p>3. Enter 0000000000.</p>
-            <p>4. Enter total tk as the amount.</p>
+            <p>4. Enter {parseFloat(cartTotal).toFixed(2)} tk as the amount.</p>
             <p>5. Note the Transaction ID.</p>
             <p>6. Drop your transaction ID and Nagad number here.</p>
-            <input required type="number" placeholder="Nagad Number" className="input-payment-1" />
+            <input required type="text" placeholder="Nagad Number" className="input-payment-1" />
             <input required type="text" placeholder="Nagad Transaction ID" />
           </div>}
         {selectedOption === "rocket" && <div>
             <p>1. Open the Rocket app or dial *322#.</p>
             <p>2. Choose send money.</p>
             <p>3. Enter 0000000000.</p>
-            <p>4. Enter total tk as the amount.</p>
+            <p>4. Enter {parseFloat(cartTotal).toFixed(2)} tk as the amount.</p>
             <p>5. Note the Transaction ID.</p>
             <p>6. Drop your transaction ID and Rocket number here.</p>
-            <input required type="number" placeholder="Rocket Number" className="input-payment-1" />
+            <input required type="text" placeholder="Rocket Number" className="input-payment-1" />
             <input required type="text" placeholder="Rocket Transaction ID" />
           </div>}
       </div>

@@ -65,7 +65,7 @@ const CouponItem = ({ coupon, handleCopied, copiedCode, copied }) => {
               <p>
                 *This coupon code will apply on{" "}
                 <span>Grocery type products</span> and when you shopping more
-                than <span>${coupon.minimumAmount}</span>
+                than <span>৳{coupon.minimumAmount}</span>
               </p>
             </div>
           </div>

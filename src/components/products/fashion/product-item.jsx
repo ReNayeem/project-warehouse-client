@@ -144,11 +144,11 @@ const ProductItem = ({ product, style_2 = false }) => {
           {discount > 0 ? (
             <>
               <span className="tp-product-price-2 new-price">
-                ${price.toFixed(2)}{" "}
+              ৳{price.toFixed(2)}{" "}
               </span>
               <span className="tp-product-price-2 old-price">
                 {" "}
-                $
+                ৳
                 {(
                   Number(price) -
                   (Number(price) * Number(discount)) / 100
@@ -157,7 +157,7 @@ const ProductItem = ({ product, style_2 = false }) => {
             </>
           ) : (
             <span className="tp-product-price-2 new-price">
-              ${price.toFixed(2)}
+              ৳{price.toFixed(2)}
             </span>
           )}
         </div>
