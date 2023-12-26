@@ -51,7 +51,7 @@ const TopRatedProducts = () => {
           </h4>
           <div className="tp-shop-widget-product-price-wrapper">
             <span className="tp-shop-widget-product-price">
-              ${item.price.toFixed(2)}
+            ৳{item.price.toFixed(2)}
             </span>
           </div>
         </div>

@@ -101,10 +101,10 @@ const DetailsWrapper = ({
       <div className="tp-product-details-price-wrapper mb-20">
         {discount > 0 ? (
           <>
-            <span className="tp-product-details-price old-price">${price}</span>
+            <span className="tp-product-details-price old-price">৳{price}</span>
             <span className="tp-product-details-price new-price">
               {" "}
-              $
+              ৳
               {(
                 Number(price) -
                 (Number(price) * Number(discount)) / 100
@@ -113,7 +113,7 @@ const DetailsWrapper = ({
           </>
         ) : (
           <span className="tp-product-details-price new-price">
-            ${price.toFixed(2)}
+            ৳{price.toFixed(2)}
           </span>
         )}
       </div>

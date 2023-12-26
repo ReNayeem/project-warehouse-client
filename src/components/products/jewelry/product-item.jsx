@@ -94,7 +94,7 @@ const ProductItem = ({ product }) => {
 
         <div className="tp-product-price-inner-4">
           <div className="tp-product-price-wrapper-4">
-            <span className="tp-product-price-4">${price.toFixed(2)}</span>
+            <span className="tp-product-price-4">৳{price.toFixed(2)}</span>
           </div>
           <div className="tp-product-price-add-to-cart">
             {isAddedToCart ? (

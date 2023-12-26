@@ -124,6 +124,20 @@ const CheckoutBillingArea = ({ register, errors }) => {
             <div className="col-md-12">
               <div className="tp-checkout-input">
                 <label>
+                  Alternative Phone (recommended)
+                </label>
+                <input
+                  {...register("alternativeContactNo", { required: false })}
+                  name="contactNo"
+                  id="contactNo"
+                  type="text"
+                  placeholder="Alternative Phone"
+                />
+              </div>
+            </div>
+            <div className="col-md-12">
+              <div className="tp-checkout-input">
+                <label>
                   Email address <span>*</span>
                 </label>
                 <input
