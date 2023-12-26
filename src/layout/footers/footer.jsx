@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 // internal
 import logo from "@assets/img/logo/logo.svg";
-import pay from "@assets/img/footer/footer-pay.png";
+import pay from "@assets/img/footer/footer-pay-3.png";
 import social_data from "@/data/social-data";
 import { Email, Location } from "@/svg";
 
@@ -163,16 +163,14 @@ const Footer = ({
                 <div className="col-md-6">
                   <div className="tp-footer-copyright">
                     <p>
-                      © {new Date().getFullYear()} All Rights Reserved | Next
-                      js Template by
-                      <Link href="/"> ❤</Link>.
+                      © {new Date().getFullYear()} All Rights Reserved 
                     </p>
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="tp-footer-payment text-md-end">
                     <p>
-                      <Image src={pay} alt="pay" />
+                      <Image width={260} height={45} src={pay} alt="pay" />
                     </p>
                   </div>
                 </div>

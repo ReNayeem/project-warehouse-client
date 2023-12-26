@@ -3,3 +3,36 @@
 @import "swiper/css/bundle";
 @import "node_modules/react-modal-video/scss/modal-video.scss";
 @import "../../public/assets/scss/main.scss";
+
+.payment-options{
+    display: flex;
+    gap: .5rem;
+}
+ 
+.selected {
+    background-color: #007bff;
+    color: white;
+    padding: .2rem 1rem;
+}
+
+.unselected{
+    padding: .2rem 1rem;
+    border: 1px solid #007bff;
+}
+
+.result {
+    margin-top: 15px;
+}
+
+.result p{
+    margin: 0;
+}
+
+.result .input-payment-1{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.result input:nth-last-child(1){
+    margin-bottom: 15px;
+}
